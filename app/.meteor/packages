@@ -11,3 +11,9 @@ twbs:bootstrap
 accounts-ui
 service-configuration
 momentjs:moment
+anti:fake
+dburles:factory
+accounts-password
+accounts-base
+autopublish
+insecure
