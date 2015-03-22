@@ -3,3 +3,17 @@
  *  this.ready();
  * });
  */
+
+//starts here
+Meteor.publish('allNetworks', function(){
+  return Networks.find();
+});
+
+Meteor.publish('NetworkItem', function(id){
+  return Networks.find(id);
+});
+
+Meteor.publish('allUsers', function(){
+	return Meteor.users.find();
+})
+

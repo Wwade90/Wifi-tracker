@@ -1,9 +1,15 @@
 <template name="Home">
+	
+	{{> loginButtons}}
+	
+	Wifey
 
-{{> loginButtons}}
+	{{#if currentUser}}
+		Hi, {{currentUser.profile.name}}
+	{{/if}}
 
-<div class="container">
-	{{> NetworksList}}
-</div>
+	<div class="container">
+		{{> NetworksList}}
+	</div>
 
 </template>
