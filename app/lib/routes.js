@@ -1,3 +1,8 @@
+Router.onBeforeAction(function() {
+  GoogleMaps.load();
+  this.next();
+}, { only: ['network.item'] });
+
 Router.configure({
   layoutTemplate: 'MasterLayout',
   loadingTemplate: 'Loading',
@@ -17,10 +22,10 @@ Router.route('/', {
   }
 });
 
-Router.route('/:_id', {
+Router.route('/network/:_id', {
   name: 'network.item',
   controller: 'NetworksController',
-  action: 'detail',
+  action: 'show',
   where: 'client',
   waitOn: function(){
     return [
@@ -28,4 +33,11 @@ Router.route('/:_id', {
       Meteor.subscribe('allUsers')
     ];
   }
+});
+
+Router.route('/network/:_id/edit', {
+  name: 'network.edit',
+  controller: 'NetworksController',
+  action: 'edit',
+  where: 'client'
 });
