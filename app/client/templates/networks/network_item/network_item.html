@@ -1,6 +1,43 @@
 <template name="NetworkItem">
- 
-    <h4 class="list-group-item-heading">{{name}}</h4>
-    <p class="list-group-item-text">{{address}}</p>
+<div class="container">
+	<div class="map-container">
+		{{> googleMap name="networkItemMap" options=networkItemMapOptions}}
+	</div>
+	<div class="page-header">
+	 <span class="pull-right"><a href="#" class="btn btn-warning">Flag</a></span>
+	 <h1>{{name}} <small>Subtext for header</small></h1>
+
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">{{name}} <small class="pull-right">Public</small></h3>
+	  </div>
+	  <div class="panel-body">
+	    {{address}}
+	  </div>
+	</div>
+	<!-- <h4 class="list-group-item-heading"></h4>
+  <p class="list-group-item-text"></p> -->
+	<div class="panel panel-default">
+  
+	  <div class="panel-heading">
+	  	
+	  </div>
+	  <div class="panel-body">
+	    <p>{{address}}</p>
+	  </div>
+
+	  <!-- List group -->
+	  <div class="list-group">
+	    <a href class="list-group-item">Bookmark</a>
+	    <a href class="list-group-item">Request Password</a>
+	    <a href class="list-group-item">Get Directions</a>
+	    <a href class="list-group-item">Rate This Network</a>
+	    <a href class="list-group-item">Flag</a>
+	  </div>
+	</div>
+	
+</div>
+  
  
 </template>
