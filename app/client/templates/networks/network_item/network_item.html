@@ -1,8 +1,6 @@
 <template name="NetworkItem">
 <div class="container">
-	<div class="map-container">
-		{{> googleMap name="networkItemMap" options=networkItemMapOptions}}
-	</div>
+	{{> Map}}
 	<div class="page-header">
 	 <span class="pull-right"><a href="#" class="btn btn-warning">Flag</a></span>
 	 <h1>{{name}} <small>Subtext for header</small></h1>
