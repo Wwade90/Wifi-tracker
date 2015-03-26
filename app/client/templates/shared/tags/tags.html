@@ -1,6 +1,6 @@
 <template name="Tags">
 	<ul class="tags">
-		<li class="label">Keywords:</li>
+		<li class="tags-title">Keywords:</li>
 		{{#each tags}}
 	  	{{> Tag}}
 	  {{/each}}
@@ -9,6 +9,7 @@
 
 <template name="Tag">
 	<li>
-		<span class="label label-default">{{this}}</span>
+		<!-- <span class="label label-default">{{this}}</span> -->
+		{{this}}
 	</li>
 </template>

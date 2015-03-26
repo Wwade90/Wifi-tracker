@@ -9,8 +9,7 @@ Template.Tags.events({
 /*****************************************************************************/
 Template.Tags.helpers({
 	tags: function(){
-		var self = this;
-		return self.tags;
+		return Template.instance().data.tags;
 	}
 });
 

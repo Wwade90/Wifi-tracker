@@ -29,15 +29,17 @@
     position: relative;
     margin-right: 5px; 
     &:after{
-      content: ","
+      content: ",";
+      position: relative;
+      margin-left: -4px;
     }
     &:last-child:after{
       content: "";
     }
-    &.label{
+    &.tags-title{
       display: block;
       position: absolute;
-      left:0;
+      left: 0;
       height: 100%;
       font-weight: bold;
       display: inline-block;
