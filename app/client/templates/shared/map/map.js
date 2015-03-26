@@ -17,7 +17,7 @@ Template.Map.helpers({
         center: new google.maps.LatLng(
         	self.latitude, self.longitude
         ),
-        zoom: 15
+        zoom: 17
       };
     }
   }
@@ -41,26 +41,23 @@ var thisMap = {
 
 	    var mapInstance = map.instance;
 			
-			function calculateCenter(){
-				if (mapInstance){
-					debugger;
-					Session.set('center', mapInstance.getCenter());
-					debugger;
-				}
-			}
+			$(window).resize(function(e) {
+				var centerLatLng = new google.maps.LatLng(
+		  		Session.get('latitude'),
+					Session.get('longitude')
+				);
+			  map.instance.setCenter(centerLatLng);
+		  	console.log('=> triggered resize');
+			});
 			self.center(GoogleMaps.maps.networkItemMap);
+			$(window).on('resize', function (e) {
+	        e.stopPropagation();
+	    });
 	  });
+	  
 	}, 
-	center: function(map){
-		$(window).resize(function() {
-			// debugger;
-			var centerLatLng = new google.maps.LatLng(
-	  		Session.get('latitude'),
-				Session.get('longitude')
-			);
-		  map.instance.setCenter(centerLatLng);
-	  	console.log('=> triggered resize');
-		}).trigger('resize');
+	center: function(){
+		$(window).trigger('resize');
 	}
 };
 
