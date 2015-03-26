@@ -13,8 +13,14 @@ NetworksController = RouteController.extend({
     });
   }, 
 
+  show: function () {
+    this.render('NetworkCreate', {
+      // data: Networks.findOne({_id: this.params._id})
+    });
+  }, 
+
   edit: function(){
     this.state.set('isEditing', true);
-    this.render('TodosDetail');
+    this.render('NetworkDetail');
   }
 });

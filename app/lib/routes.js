@@ -35,6 +35,19 @@ Router.route('/network/:_id', {
   }
 });
 
+Router.route('/network/create', {
+  name: 'network.create',
+  controller: 'NetworksController',
+  action: 'create',
+  where: 'client',
+  waitOn: function(){
+    return [
+      // Meteor.subscribe('NetworkDetail', this.params._id),
+      Meteor.subscribe('allUsers')
+    ];
+  }
+});
+
 Router.route('/network/:_id/edit', {
   name: 'network.edit',
   controller: 'NetworksController',
