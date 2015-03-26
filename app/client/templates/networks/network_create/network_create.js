@@ -2,6 +2,10 @@
 /* NetworkCreate: Event Handlers */
 /*****************************************************************************/
 Template.NetworkCreate.events({
+	'submit #network_create': function(e){
+		e.preventDefault();
+		console.log('Submitting form...');
+	}
 });
 
 /*****************************************************************************/
