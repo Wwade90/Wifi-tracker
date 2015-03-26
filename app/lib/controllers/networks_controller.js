@@ -8,7 +8,7 @@ NetworksController = RouteController.extend({
   },
 
   show: function () {
-    this.render('NetworkItem', {
+    this.render('NetworkDetail', {
       data: Networks.findOne({_id: this.params._id})
     });
   }, 

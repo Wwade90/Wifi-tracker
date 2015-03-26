@@ -23,13 +23,13 @@ Router.route('/', {
 });
 
 Router.route('/network/:_id', {
-  name: 'network.item',
+  name: 'network.detail',
   controller: 'NetworksController',
   action: 'show',
   where: 'client',
   waitOn: function(){
     return [
-      Meteor.subscribe('NetworkItem', this.params._id),
+      Meteor.subscribe('NetworkDetail', this.params._id),
       Meteor.subscribe('allUsers')
     ];
   }

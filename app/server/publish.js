@@ -9,7 +9,7 @@ Meteor.publish('allNetworks', function(){
   return Networks.find();
 });
 
-Meteor.publish('NetworkItem', function(id){
+Meteor.publish('NetworkDetail', function(id){
   return Networks.find(id);
 });
 
