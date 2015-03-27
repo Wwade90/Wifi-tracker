@@ -18,6 +18,7 @@ Template.Map.helpers({
         center: new google.maps.LatLng(
         	self.latitude, self.longitude
         ),
+       	scrollwheel: false,
         zoom: 17
       };
     }
@@ -37,6 +38,7 @@ var thisMap = {
 
 	    var marker = new google.maps.Marker({
 	      position: map.options.center,
+	      animation: google.maps.Animation.DROP,
 	      map: map.instance
 	    });
 
