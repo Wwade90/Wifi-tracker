@@ -1,7 +1,7 @@
 Router.onBeforeAction(function() {
   GoogleMaps.load();
   this.next();
-}, { only: ['network.item'] });
+}, { only: ['network.detail'] });
 
 Router.configure({
   layoutTemplate: 'MasterLayout',
@@ -42,7 +42,7 @@ Router.route('/network/create', {
   where: 'client',
   waitOn: function(){
     return [
-      // Meteor.subscribe('NetworkDetail', this.params._id),
+      Meteor.subscribe('NetworkDetail', this.params._id),
       Meteor.subscribe('allUsers')
     ];
   }

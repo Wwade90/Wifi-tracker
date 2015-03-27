@@ -13,6 +13,7 @@ Template.Map.helpers({
     if (GoogleMaps.loaded()) {
       // Map initialization options
       var self = Template.instance().data;
+
       return {
         center: new google.maps.LatLng(
         	self.latitude, self.longitude
@@ -41,6 +42,7 @@ var thisMap = {
 
 	    var mapInstance = map.instance;
 			
+			console.log('map starting?');
 			$(window).resize(function(e) {
 				var centerLatLng = new google.maps.LatLng(
 		  		Session.get('latitude'),

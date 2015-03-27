@@ -1,28 +1,28 @@
 /*****************************************************************************/
-/* NetworkItem: Event Handlers */
+/* NetworkDetail: Event Handlers */
 /*****************************************************************************/
-Template.NetworkItem.events({
+Template.NetworkDetail.events({
 });
 
 /*****************************************************************************/
-/* NetworkItem: Helpers */
+/* NetworkDetail: Helpers */
 /*****************************************************************************/
-Template.NetworkItem.helpers({
-	NetworkItem: function(){
+Template.NetworkDetail.helpers({
+	NetworkDetail: function(){
 		return Networks.find({_id: this.params.id});
 	}
 });
 
 /*****************************************************************************/
-/* NetworkItem: Lifecycle Hooks */
+/* NetworkDetail: Lifecycle Hooks */
 /*****************************************************************************/
 
 
-Template.NetworkItem.created = function () {
+Template.NetworkDetail.created = function () {
 };
 
-Template.NetworkItem.rendered = function () {
+Template.NetworkDetail.rendered = function () {
 };
 
-Template.NetworkItem.destroyed = function () {
+Template.NetworkDetail.destroyed = function () {
 };

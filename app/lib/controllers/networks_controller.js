@@ -13,9 +13,9 @@ NetworksController = RouteController.extend({
     });
   }, 
 
-  show: function () {
+  create: function () {
     this.render('NetworkCreate', {
-      // data: Networks.findOne({_id: this.params._id})
+      data: Networks.findOne({_id: this.params._id})
     });
   }, 
 
