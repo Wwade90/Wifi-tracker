@@ -8,9 +8,10 @@ Template.Tags.events({
 /* Tags: Helpers */
 /*****************************************************************************/
 Template.Tags.helpers({
-	tags: function(){
-		return Template.instance().data.tags;
-	}
+	// tags: function(){
+	// 	debugger;
+	// 	return Template.instance().data.tags;
+	// }
 });
 
 /*****************************************************************************/

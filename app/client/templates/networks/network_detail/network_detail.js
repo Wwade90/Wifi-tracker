@@ -8,9 +8,6 @@ Template.NetworkDetail.events({
 /* NetworkDetail: Helpers */
 /*****************************************************************************/
 Template.NetworkDetail.helpers({
-	NetworkDetail: function(){
-		return Networks.find({_id: this.params.id});
-	}
 });
 
 /*****************************************************************************/

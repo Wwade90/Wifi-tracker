@@ -22,10 +22,10 @@ Router.route('/', {
   }
 });
 
-Router.route('/network/:_id', {
+Router.route('/networks/:_id', {
   name: 'network.detail',
   controller: 'NetworksController',
-  action: 'show',
+  action: 'detail',
   where: 'client',
   waitOn: function(){
     return [
@@ -38,17 +38,18 @@ Router.route('/network/:_id', {
 Router.route('/network/create', {
   name: 'network.create',
   controller: 'NetworksController',
-  action: 'create',
   where: 'client',
+  action: 'create',
   waitOn: function(){
     return [
-      Meteor.subscribe('NetworkDetail', this.params._id),
+      Meteor.subscribe('allNetworks'),
       Meteor.subscribe('allUsers')
     ];
   }
 });
 
-Router.route('/network/:_id/edit', {
+
+Router.route('/networks/:_id/edit', {
   name: 'network.edit',
   controller: 'NetworksController',
   action: 'edit',

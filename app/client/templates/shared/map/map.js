@@ -8,12 +8,20 @@ Template.Map.events({
 /* Map: Helpers */
 /*****************************************************************************/
 Template.Map.helpers({
+	log: function () {
+    console.log(this);
+  },
 	networkItemMapOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
       // Map initialization options
       var self = Template.instance().data;
-
+      if (self == null){
+      	self = {
+      		latitude: Session.get('latitude'),
+      		longitude: Session.get('longitude')
+      	};
+      }
       return {
         center: new google.maps.LatLng(
         	self.latitude, self.longitude
@@ -54,9 +62,6 @@ var thisMap = {
 		  	console.log('=> triggered resize');
 			});
 			self.center(GoogleMaps.maps.networkItemMap);
-			$(window).on('resize', function (e) {
-	        e.stopPropagation();
-	    });
 	  });
 	  
 	}, 
@@ -69,11 +74,11 @@ Template.Map.created = function () {
 };
 
 Template.Map.rendered = function () {
-	var self = Template.instance().data;
-	Session.set('latitude', self.latitude);
-	Session.set('longitude', self.longitude);
-	
-	thisMap.init(Session.get('latitude'), Session.get('longitude'));
+	if (Template.instance().data !== null){
+		Session.set('latitude', Template.instance().data.latitude);
+		Session.set('longitude', Template.instance().data.longitude);
+		thisMap.init(Session.get('latitude'), Session.get('longitude'));	
+	}
 	
 	$('body').scrollTop($('nav').outerHeight());
 };
