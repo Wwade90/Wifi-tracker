@@ -45,7 +45,7 @@ Template.Map.created = function () {
 		function calculateCenter() {
 		  center = map.instance.getCenter();
 		}
-	
+		
 		$(window).resize(function(){
 			map.instance.setCenter(center);
 		});
