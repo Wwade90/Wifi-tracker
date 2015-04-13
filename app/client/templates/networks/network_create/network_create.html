@@ -1,19 +1,33 @@
 <template name="NetworkCreate">
-	<div class="container">
-		
+	<div class="container">		
 		<div class="page-header">
 			<h1>Add a Network</h1>
 		</div>
 	  
 	  <form id="network_create">
-		  <div class="form-group">
-		    <label for="network_name">Network Name (SSID)</label>
-		    <input type="text" class="form-control" id="network_name" placeholder="Enter Network Name">
-		  </div>
-		  <div class="form-group">
-		    <label for="network_password">Password</label>
-		    <input type="password" class="form-control" id="network_password" placeholder="Password">
-		  </div>
+	  	<div class="row">
+	  		<div class="col-md-6">
+	  			<div class="row">
+	  				<div class="col-md-6">
+			  			<div class="form-group">
+						    <label for="network_name">Network Name (SSID)</label>
+						    <input type="text" class="form-control" id="network_name" placeholder="Enter Network Name">
+						  </div> <!-- /.form-group -->
+			  		</div>
+			  		<div class="col-md-6">
+			  			<div class="form-group">
+						    <label for="network_password">Password</label>
+						    <input type="password" class="form-control" id="network_password" placeholder="Password">
+						  </div> <!-- /.form-group -->
+			  		</div>
+	  			</div> <!--/.row -->
+	  		</div>
+	  		<div class="col-md-6">
+	  			{{> Map}}
+	  		</div>
+	  	</div>
+		  
+		  
 		  
 		  <div class="checkbox">
 		    <label>
