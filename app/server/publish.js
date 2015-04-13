@@ -17,3 +17,7 @@ Meteor.publish('allUsers', function(){
 	return Meteor.users.find();
 })
 
+Meteor.publish('markers', function(){
+	return Markers.find();
+})
+
