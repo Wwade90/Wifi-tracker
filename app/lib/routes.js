@@ -39,13 +39,7 @@ Router.route('/network/create', {
   name: 'network.create',
   controller: 'NetworksController',
   where: 'client',
-  action: 'create',
-  waitOn: function(){
-    return [
-      Meteor.subscribe('allNetworks'),
-      Meteor.subscribe('allUsers')
-    ];
-  }
+  action: 'create'
 });
 
 
