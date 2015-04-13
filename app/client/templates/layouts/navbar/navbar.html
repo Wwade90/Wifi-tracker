@@ -2,13 +2,25 @@
   <nav id="nav-primary" class="navbar navbar-inverse navbar-static-top">
 	  <div class="container">
 	    <div class="navbar-header navbar-left">
-	      {{#linkTo route='home' class="navbar-brand"}}
-	        Wifey
-	      {{/linkTo}}
+	     	
+	     	{{#unless isHome}}
+	     	<div class="navbar-text navbar-left">
+	     		{{#linkTo route='home'}}
+		         <i class="fa fa-long-arrow-left"></i> Back
+		      {{/linkTo}}
+			  </div>
+		    {{else}}
+		    <div class="navbar-text navbar-left">
+			    {{#linkTo route='home' class="navbar-brand"}}
+		        Wifey
+		      {{/linkTo}}
+		    </div>
+		  	{{/unless}}
+
 	    </div>
-	    <p class="navbar-text navbar-right">
+	    <div class="navbar-text navbar-right">
 		  	{{> loginButtons}}
-		  </p>
+		  </div>
 	  </div>	  
 	</nav>
 </template>
