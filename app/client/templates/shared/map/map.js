@@ -34,24 +34,13 @@ Template.Map.helpers({
 /*****************************************************************************/
 /* Map: Lifecycle Hooks */
 /*****************************************************************************/
-var thisMap = {
-	init: function(){
-		var self = this;
-
-		GoogleMaps.ready('networkMap', function(map) {
-	    var marker = new google.maps.Marker({
-	      position: map.options.center,
-	      animation: google.maps.Animation.DROP,
-	      map: map.instance
-	    });	
-
-	  });
-	}
-};
-
 Template.Map.created = function () {
-	thisMap.init();
 	GoogleMaps.ready('networkMap', function(map) {
+		var marker = new google.maps.Marker({
+      position: map.options.center,
+      animation: google.maps.Animation.DROP,
+      map: map.instance
+    });	
 		var center;
 		function calculateCenter() {
 		  center = map.instance.getCenter();
