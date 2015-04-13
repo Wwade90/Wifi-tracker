@@ -13,12 +13,12 @@ $screen-sm: 680px;
   @media(min-width: 960px){
     padding-bottom: 30.7%;
   }
-  @media(max-width: $screen-sm){
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  }
+  // @media(max-width: $screen-sm){
+  //   padding-right: 15px;
+  //   padding-left: 15px;
+  //   margin-right: auto;
+  //   margin-left: auto;
+  // }
 
   canvas, embed, .map-canvas{
 		position: absolute;
