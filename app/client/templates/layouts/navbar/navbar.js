@@ -10,7 +10,7 @@ Template.navbar.events({
 /*****************************************************************************/
 Template.navbar.helpers({
 	isHome: function(){
-		return Router.current().route.path('home');
+		return Router.current().route.getName() == "home";
 	}
 });
 

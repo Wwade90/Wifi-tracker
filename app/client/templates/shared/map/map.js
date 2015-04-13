@@ -8,21 +8,23 @@ Template.Map.events({
 /* Map: Helpers */
 /*****************************************************************************/
 Template.Map.helpers({
+	lat: function() { return Session.get('lat'); },
+  lon: function() { return Session.get('lon'); },
 	networkMapOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
       
       // Map initialization options
-      var data = Template.instance().data;
+      var data = Template.instance().data
       if (!data)
-      	data = { latitude: 0, longitude: 0 };
-      
+      	data = { latitude: Session.get('lat'), longitude: Session.get('lon') };
+
       return {
         center: new google.maps.LatLng(
         	data.latitude, data.longitude
         ),
        	scrollwheel: false,
-        zoom: 17
+        zoom: 19
       };
     }
   }
@@ -33,7 +35,7 @@ Template.Map.helpers({
 /* Map: Lifecycle Hooks */
 /*****************************************************************************/
 var thisMap = {
-	init: function(ll){
+	init: function(){
 		var self = this;
 
 		GoogleMaps.ready('networkMap', function(map) {
@@ -44,22 +46,16 @@ var thisMap = {
 	    });	
 
 	  });
-	}, 
-	center: function(){
-		$(window).trigger('resize');
 	}
 };
 
 Template.Map.created = function () {
-	thisMap.init(Session.get('ll'));
+	thisMap.init();
 	GoogleMaps.ready('networkMap', function(map) {
 		var center;
 		function calculateCenter() {
 		  center = map.instance.getCenter();
 		}
-		google.maps.event.addListener(map.instance, 'idle', function() {
-		  calculateCenter();
-		});
 	
 		$(window).resize(function(){
 			map.instance.setCenter(center);
