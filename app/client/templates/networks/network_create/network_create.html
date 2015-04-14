@@ -7,21 +7,21 @@
 	  
 	  <form id="network_create">
 	  	<div class="row">
-	  		<div class="col-md-6">
+	  		<div class="col-sm-6">
 	  			<div class="row">
-	  				<div class="col-md-12">
+	  				<div class="col-sm-12">
 	  					<div class="form-group">
 	  						<label for="location_name">Location Name</label>
-	  						<input class="form-control input-lg" type="text" placeholder="Enter Name of Place">
+	  						<input class="form-control input-lg" type="text" id="location_name" placeholder="Enter Name of Place">
 	  					</div>
 	  				</div>
-	  				<div class="col-md-6">
+	  				<div class="col-sm-6">
 			  			<div class="form-group">
-						    <label for="network_name">Network Name (SSID)</label>
+						    <label for="network_name">Network Name</label>
 						    <input type="text" class="form-control" id="network_name" placeholder="Enter Network Name">
 						  </div> <!-- /.form-group -->
 			  		</div>
-			  		<div class="col-md-6">
+			  		<div class="col-sm-6">
 			  			<div class="form-group">
 						    <label for="network_password">Password</label>
 						    <input type="password" class="form-control" id="network_password" placeholder="Password">
@@ -29,23 +29,19 @@
 			  		</div>
 	  			</div> <!--/.row -->
 	  		</div>
-	  		<div class="col-md-6">
+	  		<div class="col-sm-6">
 	  			<div class="row">
-	  				<div class="col-md-12">
+	  				<div class="col-sm-12">
 	  					<div class="form-group">
 						    <label for="location_streetAddress">Street Address</label>
-						    <input type="text" class="form-control" id="location_streetAddress" placeholder="Street Address" value="{{streetAddress}}">
+						    <input type="text" class="form-control" id="location_streetAddress" placeholder="Street Address" value="{{streetAddress}}" data-location="{{locationData}}">
 						  </div> <!-- /.form-group -->
 						</div>
-	  				<div class="col-md-12">{{> Map}}</div>
+	  				<div class="col-sm-12">{{> Map}}</div>
 	  			</div>
-	  			
-
 	  		</div>
 	  	</div>
-		  
-		  
-		  
+		 
 		  <div class="checkbox">
 		    <label>
 		      <input type="checkbox" id="network_isPublic" checked> Public
