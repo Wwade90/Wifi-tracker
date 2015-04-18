@@ -16,6 +16,7 @@ Template.NetworkCreate.events({
 			network_name: tmpl.find('#network_name').val,
 			network_password: tmpl.find('#network_password').val,
 			location_name: tmpl.find('#location_name').val,
+			location_streetAddress: tmpl.find('#location_streetAddress').val,
 			location_address: Session.get('locationData'),
 			isPublic: tmpl.find('#network_isPublic').checked
 		}
