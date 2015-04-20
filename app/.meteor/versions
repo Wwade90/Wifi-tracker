@@ -61,6 +61,7 @@ msavin:mongol@1.0.10
 natestrauser:font-awesome@4.3.0
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
+oleh:foursquare@0.0.3
 ordered-dict@1.0.3
 random@1.0.3
 reactive-dict@1.1.0
