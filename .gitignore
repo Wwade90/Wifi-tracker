@@ -32,6 +32,7 @@ Temporary Items
 .meteor/local
 .meteor/meteorite
 secrets.js
+settings.js
 
 ### SublimeText ###
 # cache files for sublime text
