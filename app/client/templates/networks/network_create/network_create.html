@@ -4,7 +4,6 @@
 		<div class="page-header">
 			<h1>Add a Network</h1>
 		</div>
-	  
 	  <form id="network_create">
 	  	<div class="row">
 	  		<div class="col-sm-6">
@@ -12,7 +11,7 @@
 	  				<div class="col-sm-12">
 	  					<div class="form-group">
 	  						<label for="location_name">Location Name</label>
-	  						<input class="form-control input-lg" type="text" id="location_name" placeholder="Enter Name of Place">
+	  						<input class="form-control" type="text" id="location_name" placeholder="Enter Name of Place">
 	  					</div>
 	  				</div>
 	  				<div class="col-sm-6">
@@ -33,8 +32,8 @@
 	  			<div class="row">
 	  				<div class="col-sm-12">
 	  					<div class="form-group">
-						    <label for="location_streetAddress">Street Address</label>
-						    <input type="text" class="form-control" id="location_streetAddress" placeholder="Street Address" value="{{streetAddress}}" data-location="{{locationData}}">
+						    <label for="location_address">Street Address</label>
+						    <input type="text" class="form-control" id="location_address" placeholder="Street Address" value="{{streetAddress}}" data-location="{{locationData}}">
 						  </div> <!-- /.form-group -->
 						</div>
 	  				<div class="col-sm-12">{{> Map}}</div>

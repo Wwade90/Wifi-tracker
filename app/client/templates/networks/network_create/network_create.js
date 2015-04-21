@@ -2,16 +2,16 @@
 /* NetworkCreate: Event Handlers */
 /*****************************************************************************/
 Template.NetworkCreate.events({
-	'click #location_name':function(){
-  	Meteor.call('getVenues', [Session.get('lat'), Session.get('lon')], function (e, r) {
-  		if (!e){
-		  	console.log(r);
-		  }else{
-		  	console.log(e)
-		  }
+	'click #location_name': function(){
+		var coords = [Session.get('lat'), Session.get('lon')];
+  	var venues = Meteor.call('getVenues', coords, function (e, r) {
+  		if (!e)
+		  	return r;
+		  else
+		  	return e;
   	});
   },
-	'keypress #location_streetAddress':function(e){
+	'keypress #location_address':function(e){
 		setTimeout(function(){
 			Session.set('streetAddress', e.currentTarget.value);
 			console.log("Approximate street address is: " + Session.get('streetAddress'));
@@ -19,17 +19,24 @@ Template.NetworkCreate.events({
 	},
 	'submit #network_create': function(e, tmpl){
 		e.preventDefault();
-		var network = {
-			userId: Meteor.userId(),
-			createdAt: new Date,
-			network_name: tmpl.find('#network_name').val,
-			network_password: tmpl.find('#network_password').val,
-			location_name: tmpl.find('#location_name').val,
-			location_streetAddress: tmpl.find('#location_streetAddress').val,
-			location_address: Session.get('locationData'),
-			isPublic: tmpl.find('#network_isPublic').checked
+		var venue = {
+			'name': tmpl.find('#location_name').val,
+			'network':{
+				'ssid': tmpl.find('#network_name').val,
+				'password': tmpl.find('#network_password').val,
+				'isPublic': tmpl.find('#network_isPublic').checked,
+				'verified': false
+			},
+			'location': {
+				'name': tmpl.find('#location_name').val,
+				'lat': Session.get('lat'),
+				'lon': Session.get('lon'),
+				'streetAddress': tmpl.find('#location_address').val,
+				'address': Session.get('locationData')
+			}
 		}
-		Networks.insert(network);
+		Meteor.call('addVenue', venue)
+		// Networks.insert(network);
 		tmpl.find('form').reset();
 	}
 });
@@ -43,6 +50,9 @@ Template.NetworkCreate.helpers({
 	},
 	locationData: function(){
 		return Session.get('locationData');
+	},
+	venues: function(){
+		return Session.get('localVenues');
 	}
 });
 
