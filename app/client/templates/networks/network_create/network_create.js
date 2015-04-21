@@ -2,6 +2,15 @@
 /* NetworkCreate: Event Handlers */
 /*****************************************************************************/
 Template.NetworkCreate.events({
+	'click #location_name':function(){
+  	Meteor.call('getVenues', [Session.get('lat'), Session.get('lon')], function (e, r) {
+  		if (!e){
+		  	console.log(r);
+		  }else{
+		  	console.log(e)
+		  }
+  	});
+  },
 	'keypress #location_streetAddress':function(e){
 		setTimeout(function(){
 			Session.set('streetAddress', e.currentTarget.value);
