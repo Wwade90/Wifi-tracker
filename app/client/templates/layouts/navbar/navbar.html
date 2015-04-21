@@ -1,8 +1,7 @@
 <template name="navbar">
   <nav id="nav-primary" class="navbar navbar-inverse navbar-static-top">
 	  <div class="container">
-	    <div class="navbar-header navbar-left">
-	     	
+	    
 	     	{{#unless isHome}}
 	     	<div class="navbar-text navbar-left">
 	     		{{#linkTo route='home'}}
@@ -16,11 +15,10 @@
 		      {{/linkTo}}
 		    </div>
 		  	{{/unless}}
-
-	    </div>
-	    <div class="navbar-text navbar-right">
-		  	{{> loginButtons}}
-		  </div>
+				<div class="navbar-text navbar-right">
+			  	{{> loginButtons}}
+			  </div>
+	    
 	  </div>	  
 	</nav>
 </template>
