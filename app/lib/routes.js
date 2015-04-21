@@ -17,7 +17,8 @@ Router.route('/', {
   waitOn: function(){
   	return [
       Meteor.subscribe('allNetworks'),
-      Meteor.subscribe('allUsers')
+      Meteor.subscribe('allUsers'),
+      Meteor.subscribe('allVenues')
     ];
   }
 });

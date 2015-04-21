@@ -10,6 +10,9 @@ Template.NetworksList.events({
 Template.NetworksList.helpers({
 	networks: function(){
 		return Networks.find();
+	},
+	venues: function(){
+		return Venues.find();
 	}
 });
 
