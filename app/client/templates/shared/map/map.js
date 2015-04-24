@@ -15,13 +15,13 @@ Template.Map.helpers({
     if (GoogleMaps.loaded()) {
       
       // Map initialization options
-      var data = Template.instance().data
+      var data = Template.instance().data;
       if (!data)
       	data = { latitude: Session.get('lat'), longitude: Session.get('lon') };
 
       return {
         center: new google.maps.LatLng(
-        	data.latitude, data.longitude
+        	data.location.lat, data.location.lon
         ),
        	scrollwheel: false,
         zoom: 19
