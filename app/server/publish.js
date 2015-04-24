@@ -24,5 +24,9 @@ Meteor.publish('markers', function(){
 Meteor.publish('allVenues', function(params){
 	params ? !!params : 100;
 	return Venues.find({}, {limit: 100});
-})
+});
+
+Meteor.publish('VenueDetail', function(id){
+  return Venues.find(id);
+});
 

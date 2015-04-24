@@ -8,7 +8,8 @@ if (Meteor.isServer){
 	  	var venues = JSON.parse(Assets.getText('seed_venues.json'));
 		  _.each(venues, function(venue) {
 		    // replace this with something like Companions.insert(companion);
-		    var result = Meteor.call('addVenue', venue);
+		    Meteor.call('addVenue', venue);
+		    Meteor.call('addMarker', venue);
 		  });
 	  }
 		

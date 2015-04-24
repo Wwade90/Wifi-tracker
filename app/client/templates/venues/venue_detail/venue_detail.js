@@ -1,28 +1,25 @@
 /*****************************************************************************/
-/* NetworkItem: Event Handlers */
+/* VenueDetail: Event Handlers */
 /*****************************************************************************/
-Template.NetworkItem.events({
+Template.VenueDetail.events({
 });
 
 /*****************************************************************************/
-/* NetworkItem: Helpers */
+/* VenueDetail: Helpers */
 /*****************************************************************************/
-Template.NetworkItem.helpers({
-	NetworkItem: function(){
-		return Networks.find({_id: this.params.id});
-	}
+Template.VenueDetail.helpers({
 });
 
 /*****************************************************************************/
-/* NetworkItem: Lifecycle Hooks */
+/* VenueDetail: Lifecycle Hooks */
 /*****************************************************************************/
 
 
-Template.NetworkItem.created = function () {
+Template.VenueDetail.created = function () {
 };
 
-Template.NetworkItem.rendered = function () {
+Template.VenueDetail.rendered = function () {
 };
 
-Template.NetworkItem.destroyed = function () {
+Template.VenueDetail.destroyed = function () {
 };

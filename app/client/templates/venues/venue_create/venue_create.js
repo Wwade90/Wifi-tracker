@@ -1,7 +1,7 @@
 /*****************************************************************************/
-/* NetworkCreate: Event Handlers */
+/* VenueCreate: Event Handlers */
 /*****************************************************************************/
-Template.NetworkCreate.events({
+Template.VenueCreate.events({
 	'click #location_name': function(){
 		var coords = [Session.get('lat'), Session.get('lon')];
   	var venues = Meteor.call('getVenues', coords, function (e, r) {
@@ -42,9 +42,9 @@ Template.NetworkCreate.events({
 });
 
 /*****************************************************************************/
-/* NetworkCreate: Helpers */
+/* VenueCreate: Helpers */
 /*****************************************************************************/
-Template.NetworkCreate.helpers({
+Template.VenueCreate.helpers({
 	streetAddress: function(){
 		return Session.get('streetAddress');
 	},
@@ -57,7 +57,7 @@ Template.NetworkCreate.helpers({
 });
 
 /*****************************************************************************/
-/* NetworkCreate: Lifecycle Hooks */
+/* VenueCreate: Lifecycle Hooks */
 /*****************************************************************************/
 var getGeolocation = function(){
 	if (Meteor.isClient) {
@@ -89,12 +89,12 @@ var getGeolocation = function(){
   }
 };
 
-Template.NetworkCreate.created = function () {
+Template.VenueCreate.created = function () {
 	getGeolocation();
 };
 
-Template.NetworkCreate.rendered = function () {
+Template.VenueCreate.rendered = function () {
 };
 
-Template.NetworkCreate.destroyed = function () {
+Template.VenueCreate.destroyed = function () {
 };

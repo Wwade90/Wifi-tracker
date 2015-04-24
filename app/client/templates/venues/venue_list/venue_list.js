@@ -1,25 +1,29 @@
 /*****************************************************************************/
-/* NetworkDetail: Event Handlers */
+/* VenueList: Event Handlers */
 /*****************************************************************************/
-Template.NetworkDetail.events({
+Template.VenueList.events({
 });
 
 /*****************************************************************************/
-/* NetworkDetail: Helpers */
+/* VenueList: Helpers */
 /*****************************************************************************/
-Template.NetworkDetail.helpers({
+Template.VenueList.helpers({
+	networks: function(){
+		return Networks.find();
+	},
+	venues: function(){
+		return Venues.find();
+	}
 });
 
 /*****************************************************************************/
-/* NetworkDetail: Lifecycle Hooks */
+/* VenueList: Lifecycle Hooks */
 /*****************************************************************************/
-
-
-Template.NetworkDetail.created = function () {
+Template.VenueList.created = function () {
 };
 
-Template.NetworkDetail.rendered = function () {
+Template.VenueList.rendered = function () {
 };
 
-Template.NetworkDetail.destroyed = function () {
+Template.VenueList.destroyed = function () {
 };

@@ -1,20 +1,18 @@
-<template name="NetworksList">
+<template name="VenueList">
   {{> navbar}}
   <div class="container">
-    <h1>Networks List</h1>
+    <h1>Networks</h1>
     <div class="list-group">
-    {{#each networks}}
-      {{> NetworkItem}}
-    {{/each}}
+    
     {{#each venues}}
-      &bull; {{this.name}}
+      {{> VenueItem}}
     {{/each}}
     </div>  
   </div>
   
   {{#if currentUser}}
   <div class="container">
-    {{#linkTo route='network.create' class='btn btn-success btn-lg btn-block'}}
+    {{#linkTo route='venue.create' class='btn btn-success btn-lg btn-block'}}
       Add Network
     {{/linkTo}}  
   </div>

@@ -1,7 +1,7 @@
 Router.onBeforeAction(function() {
   GoogleMaps.load();
   this.next();
-}, { only: ['network.detail'] });
+}, { only: ['venue.detail'] });
 
 Router.configure({
   layoutTemplate: 'MasterLayout',
@@ -16,37 +16,36 @@ Router.route('/', {
   where: 'client',
   waitOn: function(){
   	return [
-      Meteor.subscribe('allNetworks'),
       Meteor.subscribe('allUsers'),
       Meteor.subscribe('allVenues')
     ];
   }
 });
 
-Router.route('/networks/:_id', {
-  name: 'network.detail',
-  controller: 'NetworksController',
+Router.route('/venues/:_id', {
+  name: 'venue.detail',
+  controller: 'VenuesController',
   action: 'detail',
   where: 'client',
   waitOn: function(){
     return [
-      Meteor.subscribe('NetworkDetail', this.params._id),
+      Meteor.subscribe('VenueDetail', this.params._id),
       Meteor.subscribe('allUsers')
     ];
   }
 });
 
-Router.route('/network/create', {
-  name: 'network.create',
-  controller: 'NetworksController',
+Router.route('/venue/create', {
+  name: 'venue.create',
+  controller: 'VenuesController',
   where: 'client',
   action: 'create'
 });
 
 
-Router.route('/networks/:_id/edit', {
-  name: 'network.edit',
-  controller: 'NetworksController',
+Router.route('/venues/:_id/edit', {
+  name: 'venue.edit',
+  controller: 'VenuesController',
   action: 'edit',
   where: 'client'
 });

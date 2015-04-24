@@ -38,6 +38,20 @@ Meteor.methods({
 		var newVenue = Venues.insert(venue);
 		return newVenue;
 	},
+	addMarker: function(venue){
+		if (Meteor.user())
+			venue.userId = Meteor.userId();
+		venue.createdAt = new Date;
+		var newMarker = Markers.insert({
+			venueId: venue._id,
+			userId: Meteor.userId(),
+			lat: venue.location.lat,
+			lon: venue.location.lon,
+			address: venue.location.address,
+			createdAt: new Date
+		});
+		return newMarker;
+	},
 	getVenues: function(latLng){
 		console.log("Fetching venues for [" + latLng +"]");
 		var coords = latLng;
