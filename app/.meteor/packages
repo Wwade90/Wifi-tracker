@@ -24,3 +24,5 @@ natestrauser:font-awesome
 aldeed:geocoder
 oleh:foursquare
 http
+peerlibrary:blaze-components
+reactive-var
