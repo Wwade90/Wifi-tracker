@@ -1,12 +1,14 @@
 /*****************************************************************************/
 /* Overrides */
 /*****************************************************************************/
-$brand-primary: pink;
+
+@import "variables.scss";
 
 /*****************************************************************************/
 /* Imports */
 /*****************************************************************************/
 @import '.meteor/local/build/programs/server/assets/packages/reywood_bootstrap3-sass/bootstrap';
+@import '.meteor/local/build/programs/server/assets/packages/reywood_bootstrap3-sass/assets/stylesheets/bootstrap/_variables.scss';
 
 /*****************************************************************************/
 /* main: Style */
@@ -15,3 +17,16 @@ $brand-primary: pink;
 }
 
 
+
+@import "client/templates/layouts/master_layout/master_layout.scss";
+@import "client/templates/layouts/navbar/navbar.scss";
+@import "client/templates/shared/example_component/example_component.scss";
+@import "client/templates/shared/loading/loading.scss";
+@import "client/templates/shared/map/map.scss";
+@import "client/templates/shared/tags/tags.scss";
+@import "client/templates/venues/venue_create/venue_create.scss";
+@import "client/templates/venues/venue_detail/venue_detail.scss";
+@import "client/templates/venues/venue_item/venue_item.scss";
+@import "client/templates/venues/venue_list/venue_list.scss";
+@import "client/templates/home/home.scss";
+@import "client/stylesheets/variables.scss";
