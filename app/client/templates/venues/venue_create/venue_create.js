@@ -52,45 +52,16 @@ Template.VenueCreate.helpers({
 		return Session.get('locationData');
 	},
 	venues: function(){
-		return Session.get('localVenues');
+		return Session.get('allVenues');
 	}
 });
 
 /*****************************************************************************/
 /* VenueCreate: Lifecycle Hooks */
 /*****************************************************************************/
-var getGeolocation = function(){
-	if (Meteor.isClient) {
-		var locationData = 0;
-		navigator.geolocation.getCurrentPosition(function(position) {
-      Session.set('lat', position.coords.latitude);
-      Session.set('lon', position.coords.longitude);
-      
-      var address = Meteor.call('reverseGeocode', [Session.get('lat'), Session.get('lon')], function(error, result){
-		    if (error){
-		    	return alert(error.reason);
-		    } else {
-		      Session.set('streetAddress', (result[0].streetNumber + " " + result[0].streetName))
-		      locationData = {
-		      	latitude: result[0].latitude,
-		      	longitude: result[0].longitude,
-		      	streetName: result[0].streetName,
-		      	city: result[0].city,
-		      	zipcode: result[0].zipcode,
-		      	state: result[0].state,
-		      	stateCode: result[0].stateCode,
-	      		country: result[0].country,
-						countryCode: result[0].countryCode
-		      };
-		      Session.set('locationData', locationData);
-		    }
-			});
-    });
-  }
-};
 
 Template.VenueCreate.created = function () {
-	getGeolocation();
+	getUserGeolocation();
 };
 
 Template.VenueCreate.rendered = function () {
