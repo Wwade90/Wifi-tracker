@@ -7,17 +7,14 @@
 meteor-platform
 iron:router
 fourseven:scss
-twbs:bootstrap
 accounts-ui
 service-configuration
 momentjs:moment
-anti:fake
 dburles:factory
 accounts-password
 accounts-base
 dburles:google-maps
 msavin:jetsetter
-mdg:geolocation
 msavin:mongol
 meteorhacks:cluster
 natestrauser:font-awesome
@@ -26,3 +23,5 @@ oleh:foursquare
 http
 peerlibrary:blaze-components
 reactive-var
+mquandalle:bower
+reywood:bootstrap3-sass
