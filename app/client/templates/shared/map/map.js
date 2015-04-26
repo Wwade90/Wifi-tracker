@@ -10,22 +10,32 @@ Template.Map.events({
 Template.Map.helpers({
 	lat: function() { return Session.get('lat'); },
   lon: function() { return Session.get('lon'); },
-	networkMapOptions: function() {
+	singleMarkerOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
       
       // Map initialization options
       var data = Template.instance().data;
-      if (!data)
-      	data = { latitude: Session.get('lat'), longitude: Session.get('lon') };
-
+      if (!data){
+      	data = { 
+          location: {
+            latitude: Session.get('lat'), 
+            longitude: Session.get('lon') 
+          }
+        };
+      }
       return {
         center: new google.maps.LatLng(
-        	data.location.lat, data.location.lon
+        	data.location.latitude, data.location.longitude
         ),
        	scrollwheel: false,
         zoom: 19
       };
+    }
+  },
+  allVenues: function(){
+    if (GoogleMaps.loaded()) {
+
     }
   }
 
@@ -35,7 +45,7 @@ Template.Map.helpers({
 /* Map: Lifecycle Hooks */
 /*****************************************************************************/
 Template.Map.created = function () {
-	GoogleMaps.ready('networkMap', function(map) {
+  GoogleMaps.ready('map', function(map) {
 		var marker = new google.maps.Marker({
       position: map.options.center,
       animation: google.maps.Animation.DROP,
@@ -51,7 +61,24 @@ Template.Map.created = function () {
 		});
 
   });
-};
+
+  GoogleMaps.ready('allMarkers', function(map) {
+    var marker = new google.maps.Marker({
+      position: map.options.center,
+      animation: google.maps.Animation.DROP,
+      map: map.instance
+    }); 
+    var center;
+    function calculateCenter() {
+      center = map.instance.getCenter();
+    }
+    
+    $(window).resize(function(){
+      map.instance.setCenter(center);
+    });
+
+  });
+}
 
 Template.Map.rendered = function () {
 };

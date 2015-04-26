@@ -7,6 +7,12 @@ VenuesController = RouteController.extend({
     return Venues.findOne({_id: this.params._id});
   },
 
+  list: function() {
+    this.render('VenueList', {
+      data: Venues.find()
+    });
+  },
+
   detail: function () {
     this.render('VenueDetail', {
       data: Venues.findOne({_id: this.params._id})
