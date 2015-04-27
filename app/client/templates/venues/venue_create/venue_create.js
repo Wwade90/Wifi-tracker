@@ -34,10 +34,10 @@ Template.VenueCreate.events({
 				'streetAddress': tmpl.find('#location_address').val,
 				'address': Session.get('locationData')
 			}
-		}
+		};
 		Meteor.call('addVenue', venue)
-		// Networks.insert(network);
 		tmpl.find('form').reset();
+		return false;
 	}
 });
 
