@@ -1,8 +1,8 @@
 <template name="VenueItem">
 	
   {{#linkTo route="venue.detail" class="list-group-item"}}
-    <h4 class="list-group-item-heading">{{this.location.name}}</h4>
-    <p class="list-group-item-text">{{this.location.streetAddress}}</p>
+    <h4 class="list-group-item-heading">{{location.name}} {{distanceFromUser}}</h4>
+    <p class="list-group-item-text">{{location.streetAddress}}</p>
   {{/linkTo}}
  
 </template>

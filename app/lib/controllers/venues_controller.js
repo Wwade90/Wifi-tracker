@@ -9,7 +9,10 @@ VenuesController = RouteController.extend({
 
   list: function() {
     this.render('VenueList', {
-      data: Venues.find()
+      data: this.subscribe('nearestVenues', {
+        limit: 40,
+        coordinates: Session.get('currentUserCoords')
+      })
     });
   },
 

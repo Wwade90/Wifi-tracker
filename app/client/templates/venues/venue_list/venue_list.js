@@ -8,11 +8,11 @@ Template.VenueList.events({
 /* VenueList: Helpers */
 /*****************************************************************************/
 Template.VenueList.helpers({
-	networks: function(){
-		return Networks.find();
-	},
 	venues: function(){
 		return Venues.find();
+	},
+	venueCount: function(){
+		return Venues.find().count();
 	}
 });
 
@@ -20,6 +20,7 @@ Template.VenueList.helpers({
 /* VenueList: Lifecycle Hooks */
 /*****************************************************************************/
 Template.VenueList.created = function () {
+
 };
 
 Template.VenueList.rendered = function () {

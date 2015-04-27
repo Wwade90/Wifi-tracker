@@ -1,16 +1,17 @@
 if (Meteor.isServer){
 	Meteor.startup(function(){
-	  console.log(Networks.find().count() + ' networks');
+	  console.log(Venues.find().count() + ' venues');
 	  console.log(Meteor.users.find().count() + ' users');
 
 	  // Seed Venues database
 	  if (Venues.find().count() === 0){
 	  	var venues = JSON.parse(Assets.getText('seed_venues.json'));
 		  _.each(venues, function(venue) {
-		    // replace this with something like Companions.insert(companion);
 		    Meteor.call('addVenue', venue);
 		    Meteor.call('addMarker', venue);
 		  });
+
+		  Venues._ensureIndex({"location.coordinates": "2dsphere"});
 	  }
 		
 	});

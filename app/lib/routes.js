@@ -1,4 +1,5 @@
 Router.onBeforeAction(function() {
+  getUserGeolocation();
   GoogleMaps.load();
   this.next();
 }, { only: ['home','venue.detail'] });
@@ -17,7 +18,10 @@ Router.route('/', {
   waitOn: function(){
   	return [
       Meteor.subscribe('allUsers'),
-      Meteor.subscribe('allVenues')
+      Meteor.subscribe('nearestVenues', {
+        coordinates: [Session.get('lat'), Session.get('lon')],
+        limit: 10
+      })
     ];
   }
 });

@@ -29,13 +29,16 @@ Meteor.methods({
 	reverseGeocode: function(latLng){
 		var geo = new GeoCoder();
 		var result = geo.reverse(latLng[0], latLng[1]);
+		
 		return result;
 	},
 	addVenue: function(venue){
 		if (Meteor.user())
 			venue.userId = Meteor.userId();
 		venue.createdAt = new Date;
+		venue.location.coordinates = [venue.location.lat, venue.location.lon];
 		var newVenue = Venues.insert(venue);
+		console.log(venue);
 		return newVenue;
 	},
 	addMarker: function(venue){
@@ -47,6 +50,7 @@ Meteor.methods({
 			userId: Meteor.userId(),
 			lat: venue.location.lat,
 			lon: venue.location.lon,
+			coordinates: [venue.location.lat, venue.location.lon],
 			address: venue.location.address,
 			createdAt: new Date
 		});
@@ -57,7 +61,6 @@ Meteor.methods({
 		var coords = latLng;
 		Meteor.call('foursquare', 'search?ll=' + coords, function(e, r){
 			if (!e){
-				// Session.set('localVenues', r);
 				return r;
 			}
 			else{
