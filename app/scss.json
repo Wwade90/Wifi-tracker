@@ -3,7 +3,6 @@
   "indexFilePath" : "client/stylesheets/main.scss",
   "includePaths": [
     ".meteor/local/bower",
-    
     ".meteor/local/build/programs/server/assets/packages/reywood_bootstrap3-sass/assets/stylesheets/bootstrap"
   ]
 }
