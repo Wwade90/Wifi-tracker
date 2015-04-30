@@ -47,5 +47,6 @@ Instead of writing this meteor command out manually you can save it as an alias 
 ```
 alias irondebug="meteor debug --settings ../config/development/settings.json"
 ```
+Then run `irondebug` in your terminal to automatically load the app with debugging enabled and dev settings.
 
 Also if you want to quickly run the app with settings and quickly generate stuff like views, controllers, collections, routes, etc check out [iron-cli](https://github.com/iron-meteor/iron-cli).
