@@ -1,4 +1,9 @@
 VenuesController = RouteController.extend({
+  onBeforeAction: function(){
+    getUserGeolocation();
+    this.next();
+  },
+
   subscriptions: function () {
     this.subscribe('Venues', this.params._id);
   },
@@ -8,12 +13,7 @@ VenuesController = RouteController.extend({
   },
 
   list: function() {
-    this.render('VenueList', {
-      data: this.subscribe('nearestVenues', {
-        limit: 40,
-        coordinates: Session.get('currentUserCoords')
-      })
-    });
+    this.render('VenueList');
   },
 
   detail: function () {

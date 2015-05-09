@@ -1,5 +1,4 @@
 Router.onBeforeAction(function() {
-  getUserGeolocation();
   GoogleMaps.load();
   this.next();
 }, { only: ['home','venue.detail'] });
@@ -19,8 +18,8 @@ Router.route('/', {
   	return [
       Meteor.subscribe('allUsers'),
       Meteor.subscribe('nearestVenues', {
-        coordinates: [Session.get('lat'), Session.get('lon')],
-        limit: 10
+        limit: 40,
+        coordinates: Session.get('currentUserCoords')
       })
     ];
   }
