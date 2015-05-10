@@ -40,13 +40,21 @@ Template.Map.helpers({
 /* Map: Lifecycle Hooks */
 /*****************************************************************************/
 Template.Map.created = function () {
-  getUserGeolocation();
+  // getUserGeolocation();
   GoogleMaps.ready('map', function(map) {
 		var marker = new google.maps.Marker({
       position: map.options.center,
       animation: google.maps.Animation.DROP,
       map: map.instance
-    });	
+    });
+    
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
+      icon: 'http://maps.gstatic.com/mapfiles/markers2/icon_green.png',
+      map: map.instance,
+      title: "Your Geolocation"
+    });   
+
 		var center;
 		function calculateCenter() {
 		  center = map.instance.getCenter();

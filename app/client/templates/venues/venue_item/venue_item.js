@@ -37,7 +37,6 @@ Template.VenueItem.helpers({
 
 
 Template.VenueItem.created = function () {
-	getUserGeolocation();
 };
 
 Template.VenueItem.rendered = function () {

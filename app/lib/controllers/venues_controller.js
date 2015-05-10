@@ -1,8 +1,8 @@
 VenuesController = RouteController.extend({
-  onBeforeAction: function(){
-    getUserGeolocation();
-    this.next();
-  },
+  // onBeforeAction: function(){
+  //   // getUserGeolocation();
+  //   this.next();
+  // },
 
   subscriptions: function () {
     this.subscribe('Venues', this.params._id);

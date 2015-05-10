@@ -1,6 +1,7 @@
 <template name="VenueList">
   {{> navbar}}
-  <div class="container">
+  {{> NearbyMap}}
+  <div class="container venue-list">
     <h1>{{venueCount}} Venues</h1>
     <div class="list-group">
     {{#each venues}}

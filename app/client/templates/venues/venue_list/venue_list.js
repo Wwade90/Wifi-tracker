@@ -9,26 +9,6 @@ Template.VenueList.events({
 /*****************************************************************************/
 Template.VenueList.helpers({
 	venues: function(){
-		// return Venues.find({}, {
-		// 		$geoNear: {
-		// 			near: {
-		// 				type: "Point",
-		// 				coordinates: Session.get('currentUserCoords')
-		// 			},
-		// 			// distanceField: "distance",
-		// 			// maxDistance: 500,
-		// 			// query: options,
-		// 			spherical: true
-		// 		}
-		// 	}
-		// );
-		// return Venues.find(
-		// 	{ 'location.coordinates': 
-		// 		{ 
-		// 			$near: [Session.get('currentUserCoords')[0], Session.get('currentUserCoords')[1]] //,
-		// 			// $maxdistance:10/69
-		// 		}
-		// 	});
 		return Venues.find();
 	},
 	venueCount: function(){
