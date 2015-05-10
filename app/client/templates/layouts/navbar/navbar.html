@@ -1,21 +1,21 @@
 <template name="navbar">
-  <nav id="nav-primary" class="navbar navbar-inverse navbar-static-top">
+  <nav id="nav-primary" class="navbar navbar-inverse navbar-fixed-top">
 	  <div class="container">
 	    <div class="row">
 	     	{{#unless isHome}}
-	     	<div class="navbar-text navbar-left col-sm-6">
+	     	<div class="navbar-text navbar-left col-sm-6 pull-left">
 	     		{{#linkTo route='home'}}
 		         <i class="fa fa-long-arrow-left"></i> Back
 		      {{/linkTo}}
 			  </div>
 		    {{else}}
-		    <div class="navbar-text navbar-left col-sm-6">
+		    <div class="navbar-text navbar-left col-sm-6 pull-left">
 			    {{#linkTo route='home'}}
 		        Wifey
 		      {{/linkTo}}
 		    </div>
 		  	{{/unless}}
-				<div class="navbar-text navbar-right">
+				<div class="navbar-text navbar-right pull-right">
 			  	{{> loginButtons}}
 			  </div>
 			</div>	    
