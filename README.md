@@ -1,6 +1,6 @@
 ### Wifey
 
-Wifey keeps tabs on all of your WIFI connections.
+Wifey keeps tabs on all of your WIFI networks.
 
 
 ### Installation
