@@ -24,7 +24,7 @@ $ cd wifey/app
 $ meteor --settings ../config/development/settings.json
 ```
 
-- High five the nearest civilian.
+- High five the nearest civilian, yo!
 
 ### Debugging
 Want to debug server side code?
