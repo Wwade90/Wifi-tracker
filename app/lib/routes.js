@@ -12,8 +12,17 @@ Router.configure({
 Router.route('/', {
   name: 'home',
   controller: 'VenuesController',
-  action: 'list',
-  where: 'client'
+  action: 'index',
+  where: 'client',
+  waitOn: function(){
+    return [
+      Meteor.subscribe('nearestVenues', {
+        limit : Session.get('currentVenueLimit'),
+        coordinates : Session.get('currentUserCoords'),
+        distanceMax : Session.get('currentDistanceMax')
+      }),
+    ];
+  }
 });
 
 Router.route('/venues/:_id', {

@@ -23,20 +23,19 @@ Meteor.publish('allMarkers', function(){
 
 Meteor.publish('nearestVenues', function(params){
 	var limit = !!params ? params.limit : 50;
-	params ? !!params : 50;
 	if (!!params && !!params.coordinates){
 		return Venues.find(
 			{ 'location.coordinates': 
 				{ $near :
-			        { $geometry :
-			          { type : "Point" ,
-			            coordinates : params.coordinates 
-			          },
-			         	$maxDistance : 6000,
-			         	spherical: true
-		  			} 
-		  		} 	
-  			}, {limit: limit});	
+	        { $geometry :
+	          { type : "Point" ,
+	            coordinates : params.coordinates 
+	          },
+	         	$maxDistance : Session.get('currentDistanceMax'),
+	         	spherical: true
+	  			} 
+	  		} 	
+			}, {limit: limit});	
 	} else {
 		return Venues.find({}, {limit: limit});
 	}

@@ -12,32 +12,12 @@ VenuesController = RouteController.extend({
     return Venues.findOne({_id: this.params._id});
   },
 
-  list: function() {
-    //if (Meteor.isClient && !!Session.get('currentUserCoords')){
-      this.render('VenueList', {
-        waitOn: function(){
-          return [
-            Meteor.subscribe('allUsers'),
-            Meteor.subscribe('nearestVenues', {
-              limit: 40,
-              coordinates: Session.get('currentUserCoords')
-            })
-            // Meteor.subscribe('nearestVenues')
-          ];
-        },
-        data: Venues.find({ 'location.coordinates': 
-            { $near :
-              { $geometry :
-                { type : "Point" ,
-                  coordinates : Session.get('currentUserCoords') 
-                } ,
-                $maxDistance : 6000,
-                spherical: true
-              } 
-            }
-        })
-      })
-    //}
+  index: function() {
+    this.render('VenueList', {
+      data: function(){
+        return Venues.find();
+      }
+    })
   },
 
   detail: function () {

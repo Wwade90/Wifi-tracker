@@ -9,7 +9,19 @@ Template.VenueList.events({
 /*****************************************************************************/
 Template.VenueList.helpers({
 	venues: function(){
-		return Venues.find();
+		// return Venues.find(
+  //           { 'location.coordinates': 
+  //             { $near :
+  //               { $geometry :
+  //                 { type : "Point" ,
+  //                   coordinates : Session.get('currentUserCoords') 
+  //                 },
+  //                 $maxDistance : 6000,
+  //                 spherical: true
+  //               } 
+  //             }   
+  //           }, {limit: 10})
+		return Venues.find({}, {limit: Session.get('currentVenueLimit')});
 	},
 	venueCount: function(){
 		return Venues.find().count();

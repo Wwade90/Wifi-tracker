@@ -1,16 +1,28 @@
 <template name="VenueList">
   {{> navbar}}
   {{> NearbyMap}}
-  <div class="container venue-list">
-    <h1>{{venueCount}} Venues</h1>
-    <div class="list-group">
-    {{#each venues}}
-      {{> VenueItem}}
-    {{/each}}
-    </div>  
-  </div>
   
   {{#if currentUser}}
+  <div class="container venue-list">
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          {{venueCount}} Venues
+        </h3>
+      </div>
+      <div class="panel-body">
+        {{> VenueFilter}}
+         <div class="list-group">
+          {{#each venues}}
+            {{> VenueItem}}
+          {{/each}}
+        </div>  
+      </div>
+    </div>
+   
+  </div>
+  
   <div class="container">
     {{#linkTo route='venue.create' class='btn btn-success btn-lg btn-block'}}
       Add Network
