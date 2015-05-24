@@ -13,16 +13,7 @@ Router.route('/', {
   name: 'home',
   controller: 'VenuesController',
   action: 'list',
-  where: 'client',
-  waitOn: function(){
-  	return [
-      Meteor.subscribe('allUsers'),
-      Meteor.subscribe('nearestVenues', {
-        limit: 40,
-        coordinates: Session.get('currentUserCoords')
-      })
-    ];
-  }
+  where: 'client'
 });
 
 Router.route('/venues/:_id', {
