@@ -13,7 +13,31 @@ VenuesController = RouteController.extend({
   },
 
   list: function() {
-    this.render('VenueList');
+    //if (Meteor.isClient && !!Session.get('currentUserCoords')){
+      this.render('VenueList', {
+        waitOn: function(){
+          return [
+            Meteor.subscribe('allUsers'),
+            Meteor.subscribe('nearestVenues', {
+              limit: 40,
+              coordinates: Session.get('currentUserCoords')
+            })
+            // Meteor.subscribe('nearestVenues')
+          ];
+        },
+        data: Venues.find({ 'location.coordinates': 
+            { $near :
+              { $geometry :
+                { type : "Point" ,
+                  coordinates : Session.get('currentUserCoords') 
+                } ,
+                $maxDistance : 6000,
+                spherical: true
+              } 
+            }
+        })
+      })
+    //}
   },
 
   detail: function () {

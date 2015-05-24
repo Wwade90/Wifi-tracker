@@ -28,15 +28,15 @@ Meteor.publish('nearestVenues', function(params){
 		return Venues.find(
 			{ 'location.coordinates': 
 				{ $near :
-	        { $geometry :
-	          { type : "Point" ,
-	            coordinates : params.coordinates 
-	          } ,
-	         	$maxDistance : 6000,
-	         	spherical: true
-	  			} 
-	  		} 	
-	  	}, {limit: limit});	
+			        { $geometry :
+			          { type : "Point" ,
+			            coordinates : params.coordinates 
+			          },
+			         	$maxDistance : 6000,
+			         	spherical: true
+		  			} 
+		  		} 	
+  			}, {limit: limit});	
 	} else {
 		return Venues.find({}, {limit: limit});
 	}
