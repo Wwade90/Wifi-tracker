@@ -4,6 +4,11 @@
   		"config": {
   			"passwordSignupFields" : "USERNAME_ONLY"
   		}
+  	},
+  	"Defaults": {
+  		"defaultVenueLimit": 1000,
+  		"defaultUserCoords": [40.7127, 74.0059],
+  		"defaultDistanceLimit": 1609.34
   	}
   },
 

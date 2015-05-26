@@ -17,10 +17,11 @@ Router.route('/', {
   waitOn: function(){
     return [
       Meteor.subscribe('nearestVenues', {
-        limit : Session.get('currentVenueLimit'),
-        coordinates : Session.get('currentUserCoords'),
-        distanceMax : Session.get('currentDistanceMax')
+        limit : !!Session.get('currentVenueLimit') ? Session.get('currentVenueLimit') : Meteor.settings.public.Defaults.defaultVenueLimit,
+        coordinates : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords,
+        distanceLimit : !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit
       }),
+      Meteor.subscribe('distances')
     ];
   }
 });

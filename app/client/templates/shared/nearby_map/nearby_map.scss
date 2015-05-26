@@ -8,15 +8,15 @@
 	height: 100%;
 
 	&:after{
-    content: '';
-    user-select: none; 
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 0;
-    box-shadow: 0 -10 10px 20px #FFF;
-    // height: 25vh;
-    // background: linear-gradient(to top, white, rgba(255,255,255,0));
-  }
+        content: '';
+        user-select: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        box-shadow: 0 -10 10px 20px #FFF;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+    }
 }

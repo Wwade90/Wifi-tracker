@@ -1,17 +1,11 @@
 <template name="VenueFilter">
-  <div class="venue-filter">
-  	<div class="row">
-  		<div class="col-sm-4">
-  			<select name="" id="select-distance-max">
-  				<option value="{{within1BlockDistance}}">Birds eye view</option>
-	  			<option value="{{within4BlockDistances}}">Within 4 blocks</option>
-	  			<option value="{{within1MileDistance}}">Walking (1 mi.)</option>
-	  			<option value="{{within2MilesDistance">Biking (2 mi.)</option>
-	  			<option value="{{within4MilesDistance}}">Driving (5 mi.)</option>
-  			</select>
-  		</div>
-  		<div class="col-sm-4"><select name="" id=""></select></div>
-  		<div class="col-sm-4"><select name="" id=""></select></div>
-  	</div>
-  </div>
+  <form class="venue-filter form-inline">
+  	<!-- <div class="row">
+  		<div class="col-xs-4"> -->
+  			
+				{{> SelectDistanceFilter}}
+
+  		<!-- </div>
+  	</div> -->
+  </form>
 </template>

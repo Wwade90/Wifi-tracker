@@ -2,17 +2,19 @@
   {{> navbar}}
   {{> NearbyMap}}
   
-  {{#if currentUser}}
+  <!-- {{#if currentUser}} -->
   <div class="container venue-list">
 
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          {{venueCount}} Venues
+          {{venueCount}} Venues <span class="pull-right">{{> VenueFilter}}</span>
         </h3>
+        
+        <div class="clearfix"></div>
       </div>
       <div class="panel-body">
-        {{> VenueFilter}}
+        
          <div class="list-group">
           {{#each venues}}
             {{> VenueItem}}
@@ -28,7 +30,7 @@
       Add Network
     {{/linkTo}}  
   </div>
-  {{/if}}
+  <!-- {{/if}} -->
     
   
 </template>

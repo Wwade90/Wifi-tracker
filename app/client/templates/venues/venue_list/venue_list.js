@@ -2,6 +2,7 @@
 /* VenueList: Event Handlers */
 /*****************************************************************************/
 Template.VenueList.events({
+
 });
 
 /*****************************************************************************/
@@ -9,25 +10,19 @@ Template.VenueList.events({
 /*****************************************************************************/
 Template.VenueList.helpers({
 	venues: function(){
-		// return Venues.find(
-  //           { 'location.coordinates': 
-  //             { $near :
-  //               { $geometry :
-  //                 { type : "Point" ,
-  //                   coordinates : Session.get('currentUserCoords') 
-  //                 },
-  //                 $maxDistance : 6000,
-  //                 spherical: true
-  //               } 
-  //             }   
-  //           }, {limit: 10})
-		return Venues.find({}, {limit: Session.get('currentVenueLimit')});
+		return Venues.find(
+      { 'location.coordinates': 
+        { 
+          $near : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords
+        }   
+      }
+      // , {
+      //   limit: Session.get('defaultVenueLimit') ? Session.get('defaultVenueLimit') : Meteor.settings.public.Defaults.defaultVenueLimit
+      // }
+    )
 	},
 	venueCount: function(){
 		return Venues.find().count();
-	},
-	nearestVenues: function(){
-		return Venues.find();
 	}
 });
 
@@ -35,7 +30,6 @@ Template.VenueList.helpers({
 /* VenueList: Lifecycle Hooks */
 /*****************************************************************************/
 Template.VenueList.created = function () {
-
 };
 
 Template.VenueList.rendered = function () {

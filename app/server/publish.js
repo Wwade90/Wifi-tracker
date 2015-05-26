@@ -22,27 +22,28 @@ Meteor.publish('allMarkers', function(){
 });
 
 Meteor.publish('nearestVenues', function(params){
-	var limit = !!params ? params.limit : 50;
-	if (!!params && !!params.coordinates){
+	if (!!params && !!params.coordinates && !!params.limit){
 		return Venues.find(
 			{ 'location.coordinates': 
 				{ $near :
 	        { $geometry :
-	          { type : "Point" ,
+	          { type : "Point",
 	            coordinates : params.coordinates 
 	          },
-	         	$maxDistance : Session.get('currentDistanceMax'),
-	         	spherical: true
+	         	$maxDistance : Math.round(params.distanceLimit),
+	         	spherical : true
 	  			} 
 	  		} 	
-			}, {limit: limit});	
-	} else {
-		return Venues.find({}, {limit: limit});
-	}
+			}, {limit: params.limit});	
+	} 
 });
 
+Meteor.publish('distances', function(){
+	return Distances.find();
+})
+
 Meteor.publish('allVenues', function(params){
-	params ? !!params : 50;
+	params ? !!params : Meteor.settings.public.Defaults.defaultVenueLimit;
 	return Venues.find({}, {limit: params});
 });
 
