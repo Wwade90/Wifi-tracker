@@ -28,14 +28,11 @@ Template.VenueItem.helpers({
 			var toFt = function(distance){ return Math.round((distance + 0.00001) * 100) / 100};
 			var toBlocks = function(distance){ return Math.round((toMi(distance) * 20.0000400001) * 100) / 100 };
 			var calculateDistance = function(distance){
-				if (Math.round(toMi(distance)) <= 0)
-					//return Math.round(toFt(distance)) + " ft";
-					if (toBlocks(distance) <= 1.5)
-						return toFt(distance) + " ft";
-					else
-						return toBlocks(distance) + " blocks";
-				else 
-					return toMi(distance) + " mi";//return Math.round(toMi(distance)) + " mi";
+				if (Math.round(toMi(distance)) <= 0){
+					toBlocks(distance) <= 1.5 ? toFt(distance) + " ft" : toBlocks(distance) + " blocks";
+				} else { 
+					return (Math.round(toMi(distance) * 100) / 100) + " mi";//return Math.round(toMi(distance)) + " mi";
+				}
 			};
 			//var toKM = Math.round(distance * 0.001);
 			return calculateDistance(distance);

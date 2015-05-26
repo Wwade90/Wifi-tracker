@@ -8,8 +8,7 @@
 // };
 Template.SelectDistanceFilter.events({
 	'change #venue-filter--select-distance': function(e){
-		Session.set('currentDistanceLimit', $(e.currentTarget).val());
-		console.log(Session.get('currentDistanceLimit'));
+		Session.set('currentDistanceLimit', $('#venue-filter--select-distance :selected').val());
 	}
 });
 
@@ -21,8 +20,9 @@ Template.SelectDistanceFilter.helpers({
 	'elementLabel' : function() { return "Distance" },
 	'distances': function() { return Distances.find(); },
 	'optionSelected' : function(){
-		var currentDistanceLimit = Session.get('currentDistanceLimit');
-		return this.value === currentDistanceLimit;
+		var currentDistanceLimit = Session.get('currentDistanceLimit')
+		this.value ===  currentDistanceLimit ? "selected" : "";
+		// return "selected"
 	}
 });
 
@@ -30,13 +30,10 @@ Template.SelectDistanceFilter.helpers({
 /* SelectDistanceFilter: Lifecycle Hooks */
 /*****************************************************************************/
 Template.SelectDistanceFilter.created = function () {
-	// Session.set('currentVenueLimit', Meteor.settings.public.Defaults.defaultVenueLimit);
-	// Session.set('currentDistanceLimit', Meteor.settings.public.Defaults.defaultDistanceLimit);
 };
 
 Template.SelectDistanceFilter.rendered = function () {
-	// $('#venue-filter--select-distance').trigger("change");
-	// console.log(Session.get('currentDistanceLimit'));
+	$('#venue-filter--select-distance option[value="'+ Session.get('currentDistanceLimit') +'"').attr('selected', true);
 };
 
 Template.SelectDistanceFilter.destroyed = function () {

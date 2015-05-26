@@ -15,10 +15,14 @@
       </div>
       <div class="panel-body">
         
-         <div class="list-group">
+        <div class="list-group">
+        {{#if equals venueCount 0}}
+          <h2 class="text-center text-muted margin-20-0">No Results Found</h2>
+        {{else}}
           {{#each venues}}
             {{> VenueItem}}
           {{/each}}
+        {{/if}}
         </div>  
       </div>
     </div>

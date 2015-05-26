@@ -16,12 +16,12 @@ Router.route('/', {
   where: 'client',
   waitOn: function(){
     return [
+      Meteor.subscribe('distances'),
       Meteor.subscribe('nearestVenues', {
-        limit : !!Session.get('currentVenueLimit') ? Session.get('currentVenueLimit') : Meteor.settings.public.Defaults.defaultVenueLimit,
-        coordinates : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords,
-        distanceLimit : !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit
-      }),
-      Meteor.subscribe('distances')
+        limit : Meteor.settings.public.Defaults.defaultVenueLimit,
+        coordinates : Session.get('currentUserCoords'), 
+        distanceLimit : !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit 
+      })
     ];
   }
 });

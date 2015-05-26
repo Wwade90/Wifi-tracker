@@ -1,13 +1,9 @@
 <template name="SelectDistanceFilter">
 	<div class="form-group">
-	 	<label for="{{elementID}}">{{elementLabel}}</label>
-	  <select name="" id="{{elementID}}" class="form-control margin-bottom-0">
-			{{#each distances}}
-				{{#if optionSelected}}
-					<option value="{{value}}" selected>{{name}}</option>
-				{{else}}
+	 	<label for="venue-filter--select-distance">{{elementLabel}}</label>
+	  <select  name="" id="venue-filter--select-distance" class="form-control">
+			{{#each distances}}				
 					<option value="{{value}}">{{name}}</option>
-				{{/if}}
 			{{/each}}
 		</select>
 	</div>

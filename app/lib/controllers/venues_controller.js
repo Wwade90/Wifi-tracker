@@ -14,8 +14,14 @@ VenuesController = RouteController.extend({
 
   index: function() {
     this.render('VenueList', {
-      data: function(){
-        return Venues.find();
+      data:  { 
+        venues: Venues.find(
+          { 'location.coordinates': 
+            { 
+              $near : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords
+            }   
+          }
+        )
       }
     })
   },
