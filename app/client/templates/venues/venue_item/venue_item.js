@@ -29,7 +29,7 @@ Template.VenueItem.helpers({
 			var toBlocks = function(distance){ return Math.round((toMi(distance) * 20.0000400001) * 100) / 100 };
 			var calculateDistance = function(distance){
 				if (Math.round(toMi(distance)) <= 0){
-					toBlocks(distance) <= 1.5 ? toFt(distance) + " ft" : toBlocks(distance) + " blocks";
+					return toBlocks(distance) <= 1.5 ? toFt(distance) + " ft" : toBlocks(distance) + " blocks";
 				} else { 
 					return (Math.round(toMi(distance) * 100) / 100) + " mi";//return Math.round(toMi(distance)) + " mi";
 				}
