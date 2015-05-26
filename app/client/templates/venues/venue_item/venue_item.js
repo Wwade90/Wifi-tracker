@@ -26,7 +26,7 @@ Template.VenueItem.helpers({
 			var distance = geolib.getDistance(startPoint, endPoint);
 			var toMi = function(distance){ return distance * 0.00062137 };
 			var toFt = function(distance){ return Math.round((distance + 0.00001) * 100) / 100};
-			var toBlocks = function(distance){ return Math.round((toMi(distance) * 20.0000400001) * 100) / 100 };
+			var toBlocks = function(distance){ return round2Decimals(distance / 80.4672) }; //Math.round((toMi(distance) * 20.0000400001) * 100) / 100 };
 			var calculateDistance = function(distance){
 				if (Math.round(toMi(distance)) <= 0){
 					return toBlocks(distance) <= 1.5 ? toFt(distance) + " ft" : toBlocks(distance) + " blocks";
