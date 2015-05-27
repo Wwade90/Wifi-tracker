@@ -18,11 +18,15 @@ String.prototype.toTitleCase  = function() {
 }
 
 // Math helpers
-function round2Decimals(number){
-	return ((number * 100) / 100);
+function toDecimal(number){
+	return Math.round(number * 100) / 100;
+}
+Number.prototype.toDecimal = function(){
+	return Math.round(this * 100) / 100;
 }
 
 // Spacebars helpers
 UI.registerHelper('equals', function(a, b) {
   return a == b;
 });
+
