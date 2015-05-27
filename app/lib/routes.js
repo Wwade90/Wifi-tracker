@@ -13,30 +13,14 @@ Router.route('/', {
   name: 'home',
   controller: 'VenuesController',
   action: 'index',
-  where: 'client',
-  waitOn: function(){
-    return [
-      Meteor.subscribe('distances'),
-      Meteor.subscribe('nearestVenues', {
-        limit : Meteor.settings.public.Defaults.defaultVenueLimit,
-        coordinates : Session.get('currentUserCoords'), 
-        distanceLimit : !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit 
-      })
-    ];
-  }
+  where: 'client'
 });
 
 Router.route('/venues/:_id', {
   name: 'venue.detail',
   controller: 'VenuesController',
   action: 'detail',
-  where: 'client',
-  waitOn: function(){
-    return [
-      Meteor.subscribe('VenueDetail', this.params._id),
-      Meteor.subscribe('allUsers')
-    ];
-  }
+  where: 'client'
 });
 
 Router.route('/venue/create', {

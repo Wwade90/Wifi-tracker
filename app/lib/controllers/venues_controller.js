@@ -1,18 +1,14 @@
 VenuesController = RouteController.extend({
-  // onBeforeAction: function(){
-  //   // getUserGeolocation();
-  //   this.next();
-  // },
-
-  subscriptions: function () {
-    this.subscribe('Venues', this.params._id);
-  },
-
-  data: function () {
-    return Venues.findOne({_id: this.params._id});
-  },
 
   index: function() {
+  	this.subscribe([
+      Meteor.subscribe('distances'),
+      Meteor.subscribe('nearestVenues', {
+        limit : Meteor.settings.public.Defaults.defaultVenueLimit,
+        coordinates : Session.get('currentUserCoords'), 
+        distanceLimit : !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit 
+      })
+    ]);
     this.render('VenueList', {
       data:  { 
         venues: Venues.find(
@@ -27,6 +23,10 @@ VenuesController = RouteController.extend({
   },
 
   detail: function () {
+  	this.subscribe([
+      Meteor.subscribe('VenueDetail', this.params._id),
+      Meteor.subscribe('allUsers')
+    ]);
     this.render('VenueDetail', {
       data: Venues.findOne({_id: this.params._id})
     });
@@ -34,10 +34,10 @@ VenuesController = RouteController.extend({
 
   create: function(data){
     this.render('VenueCreate');
-  },
+  }
 
-  edit: function(){
+  /*edit: function(){
     this.state.set('isEditing', true);
     this.render('VenueDetail');
-  }
+  }*/
 });
