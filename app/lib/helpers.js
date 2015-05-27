@@ -18,10 +18,16 @@ String.prototype.toTitleCase  = function() {
 }
 
 // Math helpers
-function toDecimal(number){
+function to1Decimal(number){
+	return Math.round(number * 10) / 10;
+}
+Number.prototype.to1Decimal = function(){
+	return Math.round(this * 10) / 10;
+}
+function to2Decimals(number){
 	return Math.round(number * 100) / 100;
 }
-Number.prototype.toDecimal = function(){
+Number.prototype.to2Decimals = function(){
 	return Math.round(this * 100) / 100;
 }
 

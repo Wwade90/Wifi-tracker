@@ -10,8 +10,8 @@ toFt = function(distance){ return distance * 3.28084 };
 toBlocks = function(distance){ return distance * 0.012427423844746679 };
 calculateDistance = function(distance){
 	if (Math.round(toMi(distance)) <= 0){
-		return toBlocks(distance) <= 1 ? toFt(distance).toDecimal() + " ft" : toBlocks(distance).toDecimal() + " blocks";
+		return toBlocks(distance) <= 1 ? toFt(distance).to2Decimals() + " ft" : toBlocks(distance).to1Decimal() + " blocks";
 	} else { 
-		return toMi(distance).toDecimal() + " mi";
+		return toMi(distance).to1Decimal() + " mi";
 	}
 };
