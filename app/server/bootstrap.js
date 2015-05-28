@@ -7,7 +7,11 @@ if (Meteor.isServer){
 	  if (Venues.find().count() === 0){
 	  	var venues = JSON.parse(Assets.getText('seed_venues.json'));
 		  _.each(venues, function(venue) {
-		  	venue.location.name = venue.location.name.toTitleCase().trim();
+		  	if (["",null].indexOf(venue.location.name) > -1 || venue.location.name.match(/^[0-9]+$/) != null){
+		  		venue.location.name = "Free Geolocated Hotspot";
+		  	} else { 
+		  		venue.location.name = venue.location.name.toTitleCase().trim();
+		  	}
 		  	venue.location.address = venue.location.address.toTitleCase().trim();
 		  	venue.location.shortName = venue.location.shortName.toTitleCase().trim();
 		  	venue.location.city = venue.location.city.toTitleCase().trim();
