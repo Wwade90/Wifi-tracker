@@ -5,18 +5,31 @@ if (Meteor.isServer){
 
 	  // Seed Venues database
 	  if (Venues.find().count() === 0){
-	  	var venues = JSON.parse(Assets.getText('seed_venues.json'));
-		  _.each(venues, function(venue) {
-		  	if (["",null].indexOf(venue.location.name) > -1 || venue.location.name.match(/^[0-9]+$/) != null){
-		  		venue.location.name = "Free Geolocated Hotspot";
+	  	var items = JSON.parse(Assets.getText('seed_venues.json'));
+		  _.each(items, function(item) {
+		  	var network = {},
+		  			venue = {},
+		  			location = {};
+		  	debugger;
+
+
+		  	if (["",null].indexOf(item.location.name) > -1 || item.location.name.match(/^[0-9]+$/) != null){
+		  		venue.name = "Free Hotspot";
 		  	} else { 
-		  		venue.location.name = venue.location.name.toTitleCase().trim();
+		  		venue.name = venue.name.toTitleCase().trim();
 		  	}
-		  	venue.location.address = venue.location.address.toTitleCase().trim();
-		  	venue.location.shortName = venue.location.shortName.toTitleCase().trim();
-		  	venue.location.city = venue.location.city.toTitleCase().trim();
-		    Meteor.call('addVenue', venue);
-		    Meteor.call('addMarker', venue);
+
+		  	// venue.address = venue.address.toTitleCase().trim();
+		  	// venue.shortName = venue.shortName.toTitleCase().trim();
+		  	// venue.city = venue.city.toTitleCase().trim();
+
+		  	// network 
+
+		    var venueID = Meteor.call('addVenue', venue);
+		    var networkID = Meteor.call('addNetwork', network);
+
+		    Meteor.call('addLocation', venueID);
+		    Meteor.call('addNetwork', networkID);
 		  });
 
 		  Venues._ensureIndex({"location.coordinates": "2dsphere"});
