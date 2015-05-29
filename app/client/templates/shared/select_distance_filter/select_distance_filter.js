@@ -20,9 +20,8 @@ Template.SelectDistanceFilter.helpers({
 	'elementLabel' : function() { return "Distance" },
 	'distances': function() { return Distances.find(); },
 	'optionSelected' : function(){
-		var currentDistanceLimit = Session.get('currentDistanceLimit')
-		this.value ===  currentDistanceLimit ? "selected" : "";
-		// return "selected"
+		var currentDistanceLimit = !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit;
+		return this.value ===  currentDistanceLimit;
 	}
 });
 
@@ -33,7 +32,7 @@ Template.SelectDistanceFilter.created = function () {
 };
 
 Template.SelectDistanceFilter.rendered = function () {
-	$('#venue-filter--select-distance option[value="'+ Session.get('currentDistanceLimit') +'"').attr('selected', true);
+	// $('#venue-filter--select-distance option[value="'+ distanceLimit +'"').attr('selected', true);
 };
 
 Template.SelectDistanceFilter.destroyed = function () {

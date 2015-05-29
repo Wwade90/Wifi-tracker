@@ -2,8 +2,13 @@
 	<div class="form-group">
 	 	<label for="venue-filter--select-distance">{{elementLabel}}</label>
 	  <select  name="" id="venue-filter--select-distance" class="form-control">
-			{{#each distances}}				
+			{{#each distances}}
+				{{#if optionSelected}}
+					<option value="{{value}}" selected="selected">{{name}}</option>
+				{{else}}
 					<option value="{{value}}">{{name}}</option>
+				{{/if}}
+				
 			{{/each}}
 		</select>
 	</div>

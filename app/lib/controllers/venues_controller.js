@@ -25,7 +25,6 @@ VenuesController = RouteController.extend({
   detail: function () {
   	this.wait([
       Meteor.subscribe('VenueDetail', this.params._id),
-      // Meteor.subscribe('allUsers')
     ]);
     this.render('VenueDetail', {
       data: Venues.findOne({_id: this.params._id})
