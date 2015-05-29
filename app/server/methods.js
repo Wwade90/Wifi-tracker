@@ -12,7 +12,6 @@ Meteor.methods({
 	    var response = HTTP.get(urlPrefix + params + auth + timeStamp);
 	    return response;
 		};
-
 		return {
 			get: get
 		}
@@ -29,7 +28,6 @@ Meteor.methods({
 	reverseGeocode: function(latLng){
 		var geo = new GeoCoder();
 		var result = geo.reverse(latLng[0], latLng[1]);
-		
 		return result;
 	},
 	addVenue: function(venue){
@@ -41,20 +39,8 @@ Meteor.methods({
 		console.log(venue);
 		return newVenue;
 	},
-	addMarker: function(venue){
-		if (Meteor.user())
-			venue.userId = Meteor.userId();
-		venue.createdAt = new Date;
-		var newMarker = Markers.insert({
-			venueId: venue._id,
-			userId: Meteor.userId(),
-			lat: venue.location.lat,
-			lon: venue.location.lon,
-			coordinates: [venue.location.lat, venue.location.lon],
-			address: venue.location.address,
-			createdAt: new Date
-		});
-		return newMarker;
+	addLocation: function(venue, network){
+		
 	},
 	getVenues: function(latLng){
 		console.log("Fetching venues for [" + latLng +"]");

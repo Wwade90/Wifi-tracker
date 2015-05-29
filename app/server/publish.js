@@ -17,10 +17,6 @@ Meteor.publish('allUsers', function(){
 	return Meteor.users.find();
 });
 
-Meteor.publish('allMarkers', function(){
-	return Markers.find();
-});
-
 Meteor.publish('nearestVenues', function(params){
 	if (!!params && !!params.coordinates && !!params.limit){
 		return Venues.find(
