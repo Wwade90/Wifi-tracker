@@ -27,7 +27,6 @@ Template.SelectDistanceFilter.created = function () {
 };
 
 Template.SelectDistanceFilter.rendered = function () {
-	// $('#venue-filter--select-distance option[value="'+ distanceLimit +'"').attr('selected', true);
 };
 
 Template.SelectDistanceFilter.destroyed = function () {
