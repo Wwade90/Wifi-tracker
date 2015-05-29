@@ -10,7 +10,7 @@ Template.VenueList.events({
 /*****************************************************************************/
 Template.VenueList.helpers({
 	venues: function(){
-    return Venues.find();
+		return Venues.find();
 	},
 	venueCount: function(){
 		return Venues.find().count();

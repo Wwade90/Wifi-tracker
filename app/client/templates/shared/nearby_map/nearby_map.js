@@ -41,8 +41,9 @@ Template.NearbyMap.created = function () {
         window.location.hash = '#t_' + doc._id;
         infowindow.setContent(
           [
-            '<header>' + doc.location.name.capitalizeFirstLetter() + '</header>',
-            '<main>' + doc.location.address.capitalizeFirstLetter() + '</main>'
+            '<header>' + doc.location.name + '</header>',
+            '<main>' + doc.location.address + '</main>',
+            '<footer><a href="venues/' + doc._id + '">Go Here</a></footer>' 
           ].join(''));
         infowindow.open(map.instance, marker);
       });

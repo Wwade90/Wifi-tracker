@@ -1,11 +1,6 @@
 /*****************************************************************************/
 /* SelectDistanceFilter: Event Handlers */
 /*****************************************************************************/
-// var selectFilter = {
-// 	elementID: "venue-filter--select-distance",
-// 	cssSelector: '#' + this.elementID,
-// 	elementLabel: "Distance"
-// };
 Template.SelectDistanceFilter.events({
 	'change #venue-filter--select-distance': function(e){
 		Session.set('currentDistanceLimit', $('#venue-filter--select-distance :selected').val());
