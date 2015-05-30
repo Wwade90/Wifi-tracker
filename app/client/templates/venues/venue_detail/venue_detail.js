@@ -8,6 +8,8 @@ Template.VenueDetail.events({
 /* VenueDetail: Helpers */
 /*****************************************************************************/
 Template.VenueDetail.helpers({
+	lat: function() { return Session.get('lat'); },
+  lon: function() { return Session.get('lon'); }
 });
 
 /*****************************************************************************/

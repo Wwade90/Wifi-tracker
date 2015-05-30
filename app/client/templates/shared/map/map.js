@@ -18,15 +18,12 @@ Template.Map.helpers({
       var data = Template.instance().data;
       if (!data){
       	data = { 
-          location: {
-            latitude: Session.get('lat'), 
-            longitude: Session.get('lon') 
-          }
+          coordinates: [Session.get('lat'), Session.get('lon')]
         };
       }
       return {
         center: new google.maps.LatLng(
-        	data.location.lat, data.location.lon
+        	data.coordinates[0], data.coordinates[1]
         ),
        	scrollwheel: false,
         zoom: 19

@@ -19,8 +19,8 @@ Template.VenueItem.helpers({
 				longitude: Session.get('currentUserCoords')[1]
 			};
 			var endPoint = {
-				latitude: this.location.coordinates[0],
-				longitude: this.location.coordinates[1]
+				latitude: this.coordinates[0],
+				longitude: this.coordinates[1]
 			};
 
 			var distance = geolib.getDistance(startPoint, endPoint);

@@ -11,9 +11,9 @@ Template.NearbyMap.helpers({
 	nearbyMapOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
-	    var coords = [Session.get('lat'), Session.get('lon')]	
+	    // var coords = [Session.get('lat'), Session.get('lon')]	
       return {
-        center: new google.maps.LatLng(coords[0],coords[1]),
+        center: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
        	scrollwheel: false,
         zoom: 14
       };
@@ -25,25 +25,23 @@ Template.NearbyMap.helpers({
 /* NearbyMap: Lifecycle Hooks */
 /*****************************************************************************/
 Template.NearbyMap.created = function () {
-	// getUserGeolocation();
   GoogleMaps.ready('map', function(map) {
     var infowindow = new google.maps.InfoWindow();
   	
-    Venues.find().forEach(function(doc){
-			
+    Venues.find().forEach(function(venue){
       var marker = new google.maps.Marker({
-	      position: new google.maps.LatLng(doc.location.lat, doc.location.lon),
-	      map: map.instance
-	    });
+        position: new google.maps.LatLng(venue.coordinates[0], venue.coordinates[1]),
+        map: map.instance
+      });
 
-	    marker.set('title', doc.location.name);
-	    marker.addListener('click',function(){
-        window.location.hash = '#t_' + doc._id;
+	    marker.set('title', venue.name);
+	    marker.addListener('click', function(){
+        window.location.hash = '#t_' + venue._id;
         infowindow.setContent(
           [
-            '<header>' + doc.location.name + '</header>',
-            '<main>' + doc.location.address + '</main>',
-            '<footer><a href="venues/' + doc._id + '">Go Here</a></footer>' 
+            '<header>' + venue.name + '</header>',
+            '<main>' + venue.address + '</main>',
+            '<footer><a href=" venues/' + venue._id + '">Go Here</a></footer>' 
           ].join(''));
         infowindow.open(map.instance, marker);
       });

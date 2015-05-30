@@ -5,19 +5,13 @@ VenuesController = RouteController.extend({
        Meteor.subscribe('distances'),
        Meteor.subscribe('nearestVenues', {
          limit : Meteor.settings.public.Defaults.defaultVenueLimit,
-         coordinates : Session.get('currentUserCoords'), 
+         coordinates : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords, 
          distanceLimit : !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit 
        })
     ]);
     this.render('VenueList', {
       data:  { 
-        venues: Venues.find(
-          { 'location.coordinates': 
-            { 
-              $near : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords
-            }   
-          }
-        )
+        venues: Venues.find({ 'coordinates': { $near : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords }})
       }
     })
   },

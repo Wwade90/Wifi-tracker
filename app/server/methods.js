@@ -16,9 +16,6 @@ Meteor.methods({
 			get: get
 		}
 	},
-	insertNetwork: function(network){
-		Networks.insert(network);
-	},
 	geoCode: function(address){
 		console.log(address);
 		var geo = GeoCoder();
@@ -30,17 +27,31 @@ Meteor.methods({
 		var result = geo.reverse(latLng[0], latLng[1]);
 		return result;
 	},
-	addVenue: function(venue){
+	insertNetwork: function(network){
+		if (Meteor.user())
+			network.userId = Meteor.userId();
+		network.createdAt = new Date;
+		var newNetwork = Networks.insert(network);
+		return newNetwork;
+	},
+	insertVenue: function(venue){
 		if (Meteor.user())
 			venue.userId = Meteor.userId();
 		venue.createdAt = new Date;
-		venue.location.coordinates = [venue.location.lat, venue.location.lon];
 		var newVenue = Venues.insert(venue);
-		console.log(venue);
 		return newVenue;
 	},
-	addLocation: function(venue, network){
-		
+	insertLocation: function(venueID, networkID){
+		var location = {
+			venueId: venueID,
+			networkId: networkID,
+			createdAt: new Date,
+		};
+		if (Meteor.user())
+			location.userId = Meteor.userId();
+		var newLocation = Locations.insert(location);
+		console.log(location);
+		return newLocation;
 	},
 	getVenues: function(latLng){
 		console.log("Fetching venues for [" + latLng +"]");

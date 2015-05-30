@@ -20,7 +20,7 @@ Meteor.publish('allUsers', function(){
 Meteor.publish('nearestVenues', function(params){
 	if (!!params && !!params.coordinates && !!params.limit){
 		return Venues.find(
-			{ 'location.coordinates': 
+			{ 'coordinates': 
 				{ $near :
 	        { $geometry :
 	          { type : "Point",
