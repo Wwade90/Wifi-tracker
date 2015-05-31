@@ -1633,8 +1633,8 @@
   },
   {
     "location":{
-      "name":"Horseshoe",
-      "address":"Horseshoe Playground - Hall Pl at E 165th St East Side",
+      "name":"Horseshoe Playground",
+      "address":"Hall Pl at E 165th St East Side",
       "lat":40.824255,
       "lon":-73.89791,
       "type":"Outdoor",
@@ -1649,8 +1649,8 @@
   },
   {
     "location":{
-      "name":"Herbert Von King",
-      "address":"Herbert Von King -inside bldg - Multi-purpose room",
+      "name":"Herbert Von King – Multi-purpose room",
+      "address":"670 Lafayette Ave, Brooklyn",
       "lat":40.68992,
       "lon":-73.94647,
       "type":"Outdoor",
@@ -1746,7 +1746,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Oriental Bl  at Girard St",
+      "address":"Oriental Bl  at Girard St",
       "lat":40.577757,
       "lon":-73.945563,
       "type":"Outdoor",
@@ -1762,7 +1762,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach   Oriental Bl at Irwin St",
+      "address":"Oriental Bl at Irwin St",
       "lat":40.577977,
       "lon":-73.943546,
       "type":"Outdoor",
@@ -1778,7 +1778,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Roof Of Beach House East Side",
+      "address":"Roof Of Beach House East Side",
       "lat":40.576957,
       "lon":-73.943594,
       "type":"Outdoor",
@@ -1794,7 +1794,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Roof Of Beach House West Side",
+      "address":"Roof Of Beach House West Side",
       "lat":40.576867,
       "lon":-73.944589,
       "type":"Outdoor",
@@ -1810,7 +1810,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Oriental Bl  at Kensington St",
+      "address":"Oriental Bl  at Kensington St",
       "lat":40.578165,
       "lon":-73.941818,
       "type":"Outdoor",
@@ -1826,7 +1826,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Oriental Bl  at Langhamst",
+      "address":"Oriental Bl  at Langhamst",
       "lat":40.578287,
       "lon":-73.940907,
       "type":"Outdoor",
@@ -1842,7 +1842,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Oriental Bl  at Norfolk St",
+      "address":"Oriental Bl  at Norfolk St",
       "lat":40.578433,
       "lon":-73.939072,
       "type":"Outdoor",
@@ -1858,7 +1858,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Oriental Bl  at Mckenzie St",
+      "address":"Oriental Bl  at Mckenzie St",
       "lat":40.578376,
       "lon":-73.939919,
       "type":"Outdoor",
@@ -1906,7 +1906,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Oriental Bl  at Jaffray Avenue",
+      "address":"Oriental Bl  at Jaffray Avenue",
       "lat":40.578112,
       "lon":-73.94273,
       "type":"Outdoor",
@@ -1922,7 +1922,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Oriental Bl  at Hastings St",
+      "address":"Oriental Bl  at Hastings St",
       "lat":40.577873,
       "lon":-73.944603,
       "type":"Outdoor",
@@ -1938,7 +1938,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Oriental Bl  at Ocean Avenue",
+      "address":"Oriental Bl  at Ocean Avenue",
       "lat":40.57622,
       "lon":-73.94552,
       "type":"Outdoor",
@@ -1954,7 +1954,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach   Ocean Avenue at Oriental Bl",
+      "address":" Ocean Avenue at Oriental Bl",
       "lat":40.5761,
       "lon":-73.94698,
       "type":"Outdoor",
@@ -1970,7 +1970,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Roof Of Beach House East Side",
+      "address":"Roof Of Beach House East Side",
       "lat":40.576957,
       "lon":-73.943594,
       "type":"Outdoor",
@@ -1986,7 +1986,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Roof Of Beach House East Side",
+      "address":"Roof Of Beach House East Side",
       "lat":40.576957,
       "lon":-73.943594,
       "type":"Outdoor",
@@ -2002,7 +2002,7 @@
   {
     "location":{
       "name":"Manhattan Beach",
-      "address":"Manhattan Beach  Roof Of Beach House West Side",
+      "address":"Roof Of Beach House West Side",
       "lat":40.576867,
       "lon":-73.944589,
       "type":"Outdoor",
@@ -2129,7 +2129,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Roof Mounted  Back Left Side",
       "lat":40.674013,
       "lon":-73.934698,
@@ -2145,7 +2145,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Roof Mounted  Back Right Side",
       "lat":40.67404,
       "lon":-73.935053,
@@ -2161,7 +2161,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Roof Mounted   Right Side",
       "lat":40.673801,
       "lon":-73.935166,
@@ -2177,7 +2177,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Roof Mounted   Left  Side Front",
       "lat":40.67343,
       "lon":-73.93463,
@@ -2193,7 +2193,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Roof Mounted   Left  Side",
       "lat":40.673866,
       "lon":-73.934717,
@@ -2209,7 +2209,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Gym Wall",
       "lat":40.6738046,
       "lon":-73.934785,
@@ -2225,7 +2225,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Activity Room",
       "lat":40.673781,
       "lon":-73.935109,
@@ -2241,7 +2241,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Music Room",
       "lat":40.673755,
       "lon":-73.935014,
@@ -2273,7 +2273,7 @@
   },
   {
     "location":{
-      "name":"Mcdonald Playground",
+      "name":"McDonald Playground",
       "address":"Near Park Building",
       "lat":40.7224,
       "lon":-73.8471,
@@ -2289,7 +2289,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Dance Room",
       "lat":40.673752,
       "lon":-73.934892,
@@ -2305,7 +2305,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Pool Area Side Wall",
       "lat":40.673727,
       "lon":-73.934867,
@@ -2321,7 +2321,7 @@
   },
   {
     "location":{
-      "name":"St Johns Rec Cntr",
+      "name":"St. John's Recreational Center",
       "address":"St Johns Park - Lobby",
       "lat":40.673695,
       "lon":-73.934935,
@@ -8241,7 +8241,7 @@
   },
   {
     "location":{
-      "name":"Sunnyside",
+      "name":"Queens Library – Sunnyside",
       "address":"43-06 Greenpoint Avenue",
       "lat":40.74080878,
       "lon":-73.92166916,
