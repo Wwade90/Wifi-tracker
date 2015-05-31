@@ -43,11 +43,11 @@ if (Meteor.isServer){
 	  }
 	  if (Distances.find().count() === 0){
 	  	var distances = [
-		  	{ helper: "within1BlockDistance", name: "Within 1 block", value: 80.4672 },
-				{ helper: "within4BlockDistance", name: "Within 4 blocks", value: 321.8688 },
-				{ helper: "within1MileDistance", name: "Walking (1 mi.)", value: 1609.34 },
-				{ helper: "within2MilesDistance", name: "Biking (2 mi.)", value: 3218.69 },
-				{ helper: "within5MilesDistance", name: "Driving (5 mi.)", value: 8046.72 }
+		  	{ helper: "1Block", name: "Within 1 block", value: 80.4672 },
+				{ helper: "4Block", name: "Within 4 blocks", value: 321.8688 },
+				{ helper: "1Mi", name: "Walking (1 mi.)", value: 1609.34 },
+				{ helper: "2Mi", name: "Biking (2 mi.)", value: 3218.69 },
+				{ helper: "5Mi", name: "Driving (5 mi.)", value: 8046.72 }
 			];
 			_.each(distances, function(distance) {
 		    Distances.insert(distance);

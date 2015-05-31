@@ -27,6 +27,8 @@ Template.SelectDistanceFilter.created = function () {
 };
 
 Template.SelectDistanceFilter.rendered = function () {
+	var currentDistanceLimit = !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit;
+	$(this.find('#venue-filter--select-distance')).val(currentDistanceLimit)
 };
 
 Template.SelectDistanceFilter.destroyed = function () {
