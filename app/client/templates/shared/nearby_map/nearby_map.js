@@ -11,11 +11,11 @@ Template.NearbyMap.helpers({
 	nearbyMapOptions: function() {
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
-	    // var coords = [Session.get('lat'), Session.get('lon')]	
       return {
         center: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
        	scrollwheel: false,
-        zoom: 14
+        zoom: 14,
+        disableDefaultUI: true
       };
     }
   }
@@ -26,8 +26,8 @@ Template.NearbyMap.helpers({
 /*****************************************************************************/
 Template.NearbyMap.created = function () {
   GoogleMaps.ready('map', function(map) {
+  	map.instance.setOptions({styles: mapStyle});
     var infowindow = new google.maps.InfoWindow();
-  	
     Venues.find().forEach(function(venue){
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(venue.coordinates[0], venue.coordinates[1]),
