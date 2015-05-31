@@ -10,10 +10,20 @@ Template.VenueList.events({
 /*****************************************************************************/
 Template.VenueList.helpers({
 	venues: function(){
-		return Venues.find();
+		return Venues.find({ 
+            'coordinates': 
+              { 
+                $near : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords 
+              } 
+          });
 	},
 	venueCount: function(){
-		return Venues.find().count();
+		return Venues.find({ 
+            'coordinates': 
+              { 
+                $near : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords 
+              } 
+          }).count();
 	}
 });
 

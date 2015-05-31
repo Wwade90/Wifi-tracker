@@ -11,8 +11,8 @@ VenuesController = RouteController.extend({
     
     if (this.ready()) {
       this.render('VenueList', {
-        data:  { 
-          venues: Venues.find({ 
+        data: function() { 
+          return Venues.find({ 
             'coordinates': 
               { 
                 $near : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords 
