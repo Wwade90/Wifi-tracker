@@ -2,4 +2,15 @@
 /* NearbyMap: Style */
 /*****************************************************************************/
 .nearby-map {
+	@media(min-width: $screen-md){
+		@extend .position-fixed;
+		top: $navbarHeight;
+		left: 0;
+		bottom: 0;
+		width: 75vw;
+		height: 100vh;;
+	}
+	@media(max-width: $screen-md){
+		@extend .full-screen;
+	}
 }

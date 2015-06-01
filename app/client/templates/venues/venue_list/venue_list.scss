@@ -3,7 +3,17 @@
 /*****************************************************************************/
 .venue-list {
 	position: relative;
-	margin-top: 65vh;
+
+	@media(min-width: $screen-md){
+		float: right;
+		margin-top: $navbarHeight;
+		right: 0;
+		bottom: 0;
+		width: 25vw;
+	}
+	@media(max-width: $screen-md){
+		@extend .margin-top--65vh;
+	}
 	.list-group{
 		&:last-child{
 			margin-bottom: 0;
