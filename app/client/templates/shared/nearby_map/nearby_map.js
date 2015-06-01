@@ -12,10 +12,10 @@ Template.NearbyMap.helpers({
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
       return {
+        disableDefaultUI: true,
         center: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
-       	scrollwheel: false,
-        zoom: 14,
-        disableDefaultUI: true
+        scrollwheel: false,
+        zoom: 14
       };
     }
   }
@@ -30,6 +30,7 @@ Template.NearbyMap.created = function () {
     var infowindow = new google.maps.InfoWindow();
     Venues.find().forEach(function(venue){
       var marker = new google.maps.Marker({
+        icon: constants.icons.svg.mapFlag,
         position: new google.maps.LatLng(venue.coordinates[0], venue.coordinates[1]),
         map: map.instance
       });
@@ -50,7 +51,7 @@ Template.NearbyMap.created = function () {
 
 		var currentGeolocation = new google.maps.Marker({
       position: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
-      icon: 'http://maps.gstatic.com/mapfiles/markers2/icon_green.png',
+      icon: constants.icons.svg.mapGeolocatedPerson,
       map: map.instance,
       title: "Your Geolocation"
     });		

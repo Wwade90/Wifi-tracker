@@ -8,35 +8,7 @@
   	"Defaults": {
   		"defaultVenueLimit": 1000,
   		"defaultUserCoords": [40.7127, 74.0059],
-  		"defaultDistanceLimit": 1609.34,
-
-      "distances" : {
-        "1Block" : {
-          "helper": "within1BlockDistance",
-          "withinTitle": "Within 1 block", 
-          "value" : 80.4672 
-        },
-        "4Block" : {
-          "helper": "within4BlockDistance",
-          "withinTitle": "Within 4 blocks", 
-          "value" : 321.8688 
-        },
-        "1Mile" : {
-          "helper": "within1MileDistance",
-          "withinTitle": "Walking (1 mi.)", 
-          "value" : 1609.34 
-        },
-        "2Miles" : {
-          "helper": "within2MilesDistance",
-          "withinTitle": "Biking (2 mi.)", 
-          "value" : 3218.69 
-        },
-        "5Miles" : {
-          "helper": "within5MilesDistance",
-          "withinTitle": "Driving (5 mi.)", 
-          "value" : 8046.72
-        }
-      }
+  		"defaultDistanceLimit": 1609.34
   	}
   },
 

@@ -3,15 +3,24 @@
 /*****************************************************************************/
 .venue-list {
 	position: relative;
-	margin-top: 60vh;
+	margin-top: 65vh;
 	.list-group{
-
 		&:last-child{
 			margin-bottom: 0;
 		}
-		
 	}
 	.panel-title{
-		line-height: 29px;
+		@media(min-width: $screen-md){
+			line-height: 29px;
+		}
+		.form-group{
+			margin-bottom: 0;
+		}
+	}
+	.venues-count{
+		@media(max-width: $screen-md){
+			display: block;
+			font-size: 210%;
+		}
 	}
 }

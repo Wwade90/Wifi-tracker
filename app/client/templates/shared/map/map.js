@@ -22,6 +22,11 @@ Template.Map.helpers({
         };
       }
       return {
+        disableDefaultUI: true,
+        zoomControl: true,
+        mapTypeControl: true,
+        scaleControl: true,
+        streetViewControl: true,
         center: new google.maps.LatLng(
         	data.coordinates[0], data.coordinates[1]
         ),
@@ -39,6 +44,7 @@ Template.Map.helpers({
 Template.Map.created = function () {
   // getUserGeolocation();
   GoogleMaps.ready('map', function(map) {
+    map.instance.setOptions({styles: mapStyle});
 		var marker = new google.maps.Marker({
       position: map.options.center,
       animation: google.maps.Animation.DROP,
@@ -47,7 +53,7 @@ Template.Map.created = function () {
     
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
-      icon: 'http://maps.gstatic.com/mapfiles/markers2/icon_green.png',
+      icon: constants.icons.svg["map-star"],
       map: map.instance,
       title: "Your Geolocation"
     });   
