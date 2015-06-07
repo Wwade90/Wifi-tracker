@@ -53,11 +53,11 @@ Template.NearbyMap.created = function () {
       position: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
       icon: constants.icons.svg.mapGeolocatedPerson,
       map: map.instance,
-      title: "Your Geolocation"
+      title: TAPi18n.__('location.yourLocation')
     });		
 
     currentGeolocation.addListener('click',function(){
-      infowindow.setContent('<header>You are Here</header>');
+      infowindow.setContent('<header>'+ TAPi18n.__('location.yourLocation') +'</header>');
       infowindow.open(map.instance, currentGeolocation);
     });
 		

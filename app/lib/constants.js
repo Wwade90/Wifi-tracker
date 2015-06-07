@@ -5,7 +5,9 @@ constants.colors = {
   brandSuccess:   "#2ecc71",
   brandInfo:      "#3498db",
   brandWarning:   "#f1c40f",
-  brandDanger:    "#e74c3c"
+  brandDanger:    "#e74c3c",
+  amethyst:       "#9b59b6",
+  wisteria:       "#8e44ad"
 },
 constants.icons = {
   svg: {
@@ -18,7 +20,7 @@ constants.icons = {
     },
     mapGeolocatedPerson: {
       path: 'M304,48c0,26.5-21.5,48-48,48s-48-21.5-48-48s21.5-48,48-48S304,21.5,304,48z M288,128h-64c-17.688,0-32,14.313-32,32v128h32v128h64V288h32V160C320,142.313,305.688,128,288,128z M320,323.406v32.313c74.531,8.813,128,32.438,128,60.281c0,35.344-85.969,64-192,64S64,451.344,64,416c0-27.844,53.5-51.469,128-60.281v-32.313c-86.813,9.5-160,39.125-160,92.594c0,66.313,112.5,96,224,96s224-29.688,224-96C480,362.531,406.813,332.906,320,323.406z',
-      fillColor: constants.colors.brandWarning,
+      fillColor: constants.colors.wisteria,
       fillOpacity: 1,
       scale: 1/14,
       strokeWeight: 0
@@ -62,5 +64,4 @@ constants.icons = {
 
   }
 };
-
 

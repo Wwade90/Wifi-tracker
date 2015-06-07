@@ -1,0 +1,10 @@
+{
+    "location": {
+    	"yourLocation": "Your Location",
+    	"distance": "Distance"
+    },
+    "uitext": {
+    	"getInfo": "Get Info",
+    	"clickHere": "Click Here"
+    }
+}

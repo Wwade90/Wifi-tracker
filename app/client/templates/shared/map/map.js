@@ -42,7 +42,6 @@ Template.Map.helpers({
 /* Map: Lifecycle Hooks */
 /*****************************************************************************/
 Template.Map.created = function () {
-  // getUserGeolocation();
   GoogleMaps.ready('map', function(map) {
     map.instance.setOptions({styles: mapStyle});
 		var marker = new google.maps.Marker({
@@ -55,7 +54,7 @@ Template.Map.created = function () {
       position: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
       icon: constants.icons.svg["map-star"],
       map: map.instance,
-      title: "Your Geolocation"
+      title: TAPi18n.__('location:yourLocation')
     });   
 
 		var center;
