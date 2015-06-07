@@ -30,7 +30,7 @@ mapStyle = [{
     }, {
         "saturation": 2
     }, {
-        "lightness": -27
+        "lightness": 15
     }, {
         "visibility": "on"
     }]
