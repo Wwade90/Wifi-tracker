@@ -24,8 +24,10 @@ Template.VenueItem.helpers({
 			};
 
 			var distance = geolib.getDistance(startPoint, endPoint);
-			
-			return calculateDistance(distance);
+			var distanceValueFromUser = calculateDistance(distance)[0],
+					distanceUnitFromUser = calculateDistance(distance)[1];
+			var formatted = "<span class='distance-value'>" + distanceValueFromUser + "</span>" + " <span class='distance-unit'>" + distanceUnitFromUser + "</span>";
+			return formatted;
 		}
 	}
 });
