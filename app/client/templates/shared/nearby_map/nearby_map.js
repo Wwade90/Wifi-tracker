@@ -2,6 +2,23 @@
 /* NearbyMap: Event Handlers */
 /*****************************************************************************/
 Template.NearbyMap.events({
+
+  'click a[href*=#]:not([href=#])': function(e){
+    e.preventDefault();
+    if (location.pathname.replace(/^\//,'') == e.currentTarget.pathname.replace(/^\//,'') && location.hostname == e.currentTarget.hostname) {
+      var target = $(e.currentTarget.hash);
+      target = target.length ? target : $('[name=' + e.currentTarget.hash.slice(1) +']');
+      if (target.length) {
+        location.hash = e.currentTarget.hash.slice(1);
+        target.addClass('active').siblings().removeClass('active');
+        $('html,body').animate({
+          scrollTop: target.offset().top - target.outerHeight()
+        }, 1000);
+        return false;
+      }
+    }
+  }
+
 });
 
 /*****************************************************************************/
@@ -26,8 +43,8 @@ Template.NearbyMap.helpers({
 /*****************************************************************************/
 Template.NearbyMap.created = function () {
   GoogleMaps.ready('map', function(map) {
-  	map.instance.setOptions({styles: mapStyle});
     var infowindow = new google.maps.InfoWindow();
+
     Venues.find().forEach(function(venue){
       var marker = new google.maps.Marker({
         icon: constants.icons.svg.mapFlag,
@@ -36,13 +53,12 @@ Template.NearbyMap.created = function () {
       });
 
 	    marker.set('title', venue.name);
-	    marker.addListener('click', function(){
-        window.location.hash = '#t_' + venue._id;
+	    marker.addListener('click', function(e){
         infowindow.setContent(
           [
             '<header>' + venue.name + '</header>',
             '<main>' + venue.address + '</main>',
-            '<footer><a href=" venues/' + venue._id + '">Go Here</a></footer>' 
+            '<footer><a href="#' + venue._id + '" data-scroll>'+ TAPi18n.__('uitext.getInfo') +'</a></footer>' 
           ].join(''));
         infowindow.open(map.instance, marker);
       });
@@ -60,6 +76,11 @@ Template.NearbyMap.created = function () {
       infowindow.setContent('<header>'+ TAPi18n.__('location.yourLocation') +'</header>');
       infowindow.open(map.instance, currentGeolocation);
     });
+
+    map.instance.addListener(currentGeolocation, 'position_changed', function() {
+      map.setCenter(this.getPosition());
+      map.fitBounds(this.getBounds());
+    });
 		
 		$(window).on('resize', function(){
 			map.instance.setCenter(new google.maps.LatLng(Session.get('lat'), Session.get('lon')));
@@ -69,6 +90,15 @@ Template.NearbyMap.created = function () {
 };
 
 Template.NearbyMap.rendered = function () {
+  var target = $(location.hash);
+      target = target.length ? target : $('[name=' + location.hash.slice(1) +']');
+      if (target.length) {
+        target.addClass('active').siblings().removeClass('active');
+        $('html,body').animate({
+          scrollTop: target.offset().top - target.outerHeight()
+        }, 1000);
+        return false;
+      }
 };
 
 Template.NearbyMap.destroyed = function () {

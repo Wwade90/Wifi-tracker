@@ -18,15 +18,9 @@ Template.VenueList.helpers({
 				}
 			})
 	},
+	
 	venueCount: function(){
-		return Venues.find(
-			{ 
-	      'coordinates': 
-	        { 
-	          $near : !!Session.get('currentUserCoords') ? Session.get('currentUserCoords') : Meteor.settings.public.Defaults.defaultUserCoords,
-	          $maxDistance: !!Session.get('currentDistanceLimit') ? Session.get('currentDistanceLimit') : Meteor.settings.public.Defaults.defaultDistanceLimit
-	        } 
-	    }).count();
+		return Venues.find().count();
 	}
 });
 
@@ -37,6 +31,8 @@ Template.VenueList.created = function () {
 };
 
 Template.VenueList.rendered = function () {
+	var hash = window.location.hash ? window.location.hash : false;
+	Session.set('windowHash', hash);
 };
 
 Template.VenueList.destroyed = function () {
