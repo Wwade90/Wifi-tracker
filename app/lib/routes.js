@@ -1,7 +1,7 @@
 Router.onBeforeAction(function() {
-  GoogleMaps.load();
-  this.next();
-}, { only: ['home','venue.detail'] });
+    GoogleMaps.load();
+    this.next();
+  }, { only: ['home','venue.detail'] });
 
 Router.configure({
   layoutTemplate: 'MasterLayout',
@@ -11,8 +11,8 @@ Router.configure({
 
 Router.route('/', {
   name: 'home',
-  controller: 'VenuesController',
-  action: 'index',
+  controller: 'HomeController',
+  action: 'action',
   where: 'client'
 });
 
