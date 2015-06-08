@@ -22,8 +22,8 @@
 .map-fullscreen{
   position: fixed;
   padding: 0;
-  top: 53px;
-  height: 100%;
+  top: $navbarHeight;
+  height: 100vh;
 
   &:after{
     content: '';
