@@ -29,6 +29,7 @@ Template.NearbyMap.helpers({
     // Make sure the maps API has loaded
     if (GoogleMaps.loaded()) {
       return {
+        styles: mapStyle,
         disableDefaultUI: true,
         center: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
         scrollwheel: false,

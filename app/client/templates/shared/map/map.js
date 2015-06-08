@@ -22,6 +22,7 @@ Template.Map.helpers({
         };
       }
       return {
+        styles: mapStyle,
         disableDefaultUI: true,
         zoomControl: true,
         mapTypeControl: true,
@@ -43,7 +44,6 @@ Template.Map.helpers({
 /*****************************************************************************/
 Template.Map.created = function () {
   GoogleMaps.ready('map', function(map) {
-    map.instance.setOptions({styles: mapStyle});
 		var marker = new google.maps.Marker({
       position: map.options.center,
       animation: google.maps.Animation.DROP,
