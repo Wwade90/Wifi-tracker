@@ -48,7 +48,7 @@ Template.NearbyMap.created = function () {
 
     Venues.find().forEach(function(venue){
       var marker = new google.maps.Marker({
-        icon: constants.icons.svg.mapFlag,
+        icon: constants.icons.svg.mapWifi,
         position: new google.maps.LatLng(venue.coordinates[0], venue.coordinates[1]),
         map: map.instance
       });
