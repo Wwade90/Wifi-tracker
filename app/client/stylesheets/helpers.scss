@@ -34,3 +34,12 @@ $directions: top, left, bottom, right;
 		}
 	}
 }
+
+.vertical-center{
+	top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
