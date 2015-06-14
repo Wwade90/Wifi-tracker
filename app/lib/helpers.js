@@ -37,12 +37,13 @@ UI.registerHelper('equals', function(a, b) {
 });
 
 UI.registerHelper('icon', function(options){
+	// TO USE: {{{icon name="svg.icon.name" }}}
 	var settings = $.extend({}, constants.icons.svg[options.hash.name], options.hash);
 	if (!settings.size){
 		settings.size = 32;
 	}
 	var ratio = settings.width / settings.size;
-	
+
 	var $svg = $(document.createElement('svg'));
 	$svg.attr({
 		version: "1.1",
