@@ -35,9 +35,9 @@ VenuesController = RouteController.extend({
     });
   }, 
 
-  // create: function(data){
-  //   this.render('VenueCreate');
-  // }
+  create: function(data){
+    this.render('VenueCreate');
+  }
 
   /*edit: function(){
     this.state.set('isEditing', true);
