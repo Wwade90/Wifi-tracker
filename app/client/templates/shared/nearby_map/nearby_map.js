@@ -91,15 +91,17 @@ Template.NearbyMap.created = function () {
 };
 
 Template.NearbyMap.rendered = function () {
-  var target = $(location.hash);
-      target = target.length ? target : $('[name=' + location.hash.slice(1) +']');
-      if (target.length) {
-        target.addClass('active').siblings().removeClass('active');
-        $('html,body').animate({
-          scrollTop: target.offset().top - target.outerHeight()
-        }, 1000);
-        return false;
-      }
+  if (!!location.hash){
+    var target = $(location.hash);
+    target = target.length ? target : $('[name=' + location.hash.slice(1) +']');
+    if (target.length) {
+      target.addClass('active').siblings().removeClass('active');
+      $('html,body').animate({
+        scrollTop: target.offset().top - target.outerHeight()
+      }, 1000);
+      return false;
+    }
+  }
 };
 
 Template.NearbyMap.destroyed = function () {

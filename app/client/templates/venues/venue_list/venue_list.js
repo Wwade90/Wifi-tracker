@@ -31,8 +31,10 @@ Template.VenueList.created = function () {
 };
 
 Template.VenueList.rendered = function () {
-	var hash = window.location.hash ? window.location.hash : false;
-	Session.set('windowHash', hash);
+	if (!!window.location.hash){
+		var hash = !!window.location.hash ? window.location.hash : false;
+		Session.set('windowHash', hash);
+	}
 };
 
 Template.VenueList.destroyed = function () {
