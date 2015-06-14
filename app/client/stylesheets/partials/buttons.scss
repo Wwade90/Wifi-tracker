@@ -8,7 +8,6 @@
   transition: all .5s;
 }
 
-
 .btn-default.btn-outline{
 	color: #777;
 }
@@ -38,4 +37,22 @@
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
   color: #fff;
+}
+
+.btn-action{
+  $size: 56px;
+  z-index: 20;
+  display: block;
+  position: fixed;
+
+  bottom: $grid-gutter-width;
+  right: $grid-gutter-width;
+
+  width: $size;
+  height: $size;
+  border-radius: 9999rem;
+}
+.svg-icon{
+  width: 100%;
+  height: auto;
 }
