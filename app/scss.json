@@ -4,5 +4,10 @@
   "includePaths": [
     ".meteor/local/bower",
     ".meteor/local/build/programs/server/assets/packages/reywood_bootstrap3-sass/assets/stylesheets/bootstrap"
-  ]
+  ],
+  "enableAutoprefixer": true,
+  "autoprefixerOptions": {
+      "browsers": ["> 5%"],
+      "cascade": false
+  }
 }
