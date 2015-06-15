@@ -5,13 +5,14 @@
 	position: relative;
 	@extend .clearfix;
 	@media(min-width: $screen-md){
-		float: right;
+		float: left;
 		margin-top: $navbarHeight;
 		padding: 0;
 		width: 30vw;
+		height: calc(100vh - 52px);
 	}
 	@media(max-width: $screen-md){
-		margin-top: 65vh;
+		margin-top: 73vh;
 	}
 	.list-group{
 		&:last-child{
@@ -33,3 +34,4 @@
 		}
 	}
 }
+
