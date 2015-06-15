@@ -37,7 +37,7 @@ UI.registerHelper('equals', function(a, b) {
 });
 
 UI.registerHelper('icon', function(options){
-	// TO USE: {{{icon name="svg.icon.name" }}}
+	// TO USE: {{{icon name="constants.svg.icon.name" }}} (from constants file)
 	var settings = $.extend({}, constants.icons.svg[options.hash.name], options.hash);
 	if (!settings.size){
 		settings.size = 32;
