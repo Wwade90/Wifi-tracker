@@ -1,43 +1,58 @@
 <template name="VenueCreate">
 	{{> navbar}}
-	<div class="container">		
+	<div class="col-sm-8 center-block">
+		<!-- 
+		<div class="btn-group btn-group-lg btn-group-justified" role="group" aria-label="...">
+		  <a href="#" class="btn btn-default">Location</a>
+		  <a href="#" class="btn btn-default">Network</a>
+		</div>
+		-->
+
 		<div class="page-header">
 			<h1>Add a Network</h1>
 		</div>
-	  <form id="network_create">
+	  <form id="network_create" role="form">
 	  	<div class="row">
-	  		<div class="col-sm-6">
+	  		<div class="col-sm-12">
 	  			<div class="row">
 	  				<div class="col-sm-12">
-	  					<div class="form-group">
+	  					<div class="form-group ">
 	  						<label for="location_name">Location Name</label>
-	  						<input class="form-control" type="text" id="location_name" placeholder="Enter Name of Place">
+	  						<input class="form-control" type="text" id="location_name" placeholder="What is the place called?">
+
 	  					</div>
 	  				</div>
-	  				<div class="col-sm-6">
-			  			<div class="form-group">
-						    <label for="network_name">Network Name</label>
-						    <input type="text" class="form-control" id="network_name" placeholder="Enter Network Name">
-						  </div> <!-- /.form-group -->
-			  		</div>
-			  		<div class="col-sm-6">
-			  			<div class="form-group">
-						    <label for="network_password">Password</label>
-						    <input type="password" class="form-control" id="network_password" placeholder="Password">
-						  </div> <!-- /.form-group -->
-			  		</div>
 	  			</div> <!--/.row -->
+	  		
+	  			<!-- <div class="row">
+	  				<div class="col-sm-12">
+	  					<div class="form-group ">
+						    <label for="location_address">Street Address</label>
+						    <div class="input-group">
+						      <input type="text" class="form-control" id="location_address" placeholder="Do you know the street address?" value="{{streetAddress}}" data-location="{{locationData}}">
+						      <span class="input-group-btn">
+						        <button class="btn btn-default" type="button">Locate</button>
+						      </span>
+						    </div>
+						    
+						  </div> 
+						</div>
+	  				 <div class="col-sm-12">{{> Map}}</div>
+	  			</div> -->
+	  		</div>
+	  	</div>
+	  	<div class="row">
+	  		<div class="col-sm-6">
+	  			<div class="form-group ">
+				    <label for="network_name">Network Name</label>
+				    <input type="text" class="form-control" id="network_name" placeholder="Enter Network Name">
+				  </div> <!-- /.form-group  -->
 	  		</div>
 	  		<div class="col-sm-6">
-	  			<div class="row">
-	  				<div class="col-sm-12">
-	  					<div class="form-group">
-						    <label for="location_address">Street Address</label>
-						    <input type="text" class="form-control" id="location_address" placeholder="Street Address" value="{{streetAddress}}" data-location="{{locationData}}">
-						  </div> <!-- /.form-group -->
-						</div>
-	  				<div class="col-sm-12">{{> Map}}</div>
-	  			</div>
+	  			<div class="form-group ">
+				    <label for="network_password">Password</label>
+				    <input type="password" class="form-control" id="network_password" placeholder="Password">
+				  </div> <!-- /.form-group  -->
 	  		</div>
 	  	</div>
 		 
@@ -47,8 +62,8 @@
 		    </label>
 		  </div>
 		  
-		  <button type="submit" class="btn btn-default btn-success">Add Network</button>
-		  <button class="btn btn-default btn-outline">Cancel</button>
+		  <button type="submit" class="btn btn-default btn-success btn-lg">Add Network</button>
+		  <button class="btn btn-default btn-outline btn-lg">Cancel</button>
 		</form>
 	</div> <!-- /.container -->
 </template>

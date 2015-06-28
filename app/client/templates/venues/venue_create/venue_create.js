@@ -2,20 +2,28 @@
 /* VenueCreate: Event Handlers */
 /*****************************************************************************/
 Template.VenueCreate.events({
-	'click #location_name': function(){
+	'click #location_name': function(e){
+		var nearbyVenues = [];
 		var coords = [Session.get('lat'), Session.get('lon')];
-  	var venues = Meteor.call('getVenues', coords, function (e, r) {
-  		if (!e)
-		  	return r;
-		  else
-		  	return e;
+  	var venues = Meteor.call('getVenues', coords, function (err, r) {
+  		if (!err){
+		  	var nearbySelect = '<select class="hidden select-full-screen"></select>';
+		  	_.each(r.data.response.venues, function(venue, i){
+		  		nearbyVenues.push(venue);	
+		  	});
+		  	$(e.currentTarget).after(nearbySelect).parent().find('.select-full-screen');
+		  	debugger;
+  		}
+		  else{
+		  	return err;
+		  }
   	});
   },
 	'keypress #location_address':function(e){
-		setTimeout(function(){
-			Session.set('streetAddress', e.currentTarget.value);
-			console.log("Approximate street address is: " + Session.get('streetAddress'));
-		}, 5000);
+		// setTimeout(function(){
+		// 	Session.set('streetAddress', e.currentTarget.value);
+		// 	console.log("Approximate street address is: " + Session.get('streetAddress'));
+		// }, 5000);
 	},
 	'submit #network_create': function(e, tmpl){
 		e.preventDefault();
