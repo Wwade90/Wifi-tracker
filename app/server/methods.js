@@ -7,14 +7,9 @@ Meteor.methods({
 		var timeStamp = (function(){ return (new Date()).toISOString().slice(0,10).replace(/-/g,"");})();
 		var auth = (function(){ return '&client_id='+ Meteor.settings.apiServices.foursquare.appId +'&client_secret='+ Meteor.settings.apiServices.foursquare.secret +'&v='})();
 
-		var get = function(){
-	    console.log('Getting: ', urlPrefix + params + auth + timeStamp);
-	    var response = HTTP.get(urlPrefix + params + auth + timeStamp);
-	    return response;
-		};
-		return {
-			get: get
-		}
+    console.log('Getting: ', urlPrefix + params + auth + timeStamp);
+    var response = HTTP.get(urlPrefix + params + auth + timeStamp);
+    return response;	
 	},
 	geoCode: function(address){
 		console.log(address);
@@ -56,14 +51,8 @@ Meteor.methods({
 	getVenues: function(latLng){
 		console.log("Fetching venues for [" + latLng +"]");
 		var coords = latLng;
-		Meteor.call('foursquare', 'search?ll=' + coords, function(e, r){
-			if (!e){
-				return r;
-			}
-			else{
-				return e;
-			}
-		});
+		var result = Meteor.call('foursquare', 'search?ll=' + coords);
+		return result;
 	}
 
 });
