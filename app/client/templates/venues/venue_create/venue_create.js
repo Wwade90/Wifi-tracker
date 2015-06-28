@@ -3,16 +3,19 @@
 /*****************************************************************************/
 Template.VenueCreate.events({
 	'click #location_name': function(e){
-		var nearbyVenues = [];
 		var coords = [Session.get('lat'), Session.get('lon')];
   	var venues = Meteor.call('getVenues', coords, function (err, r) {
   		if (!err){
-		  	var nearbySelect = '<select class="hidden select-full-screen"></select>';
+		  	var nearbySelect = '<select class="selectPicker"></select>';
+		  	$(e.currentTarget).after(nearbySelect);
 		  	_.each(r.data.response.venues, function(venue, i){
-		  		nearbyVenues.push(venue);	
+		  		var thisSelect = $(e.currentTarget).parent().find('.selectPicker');
+  				var categories = _.pluck(venue.categories, 'shortName');
+		  		var venueItem = '<option value="'+ venue.name +'" data-subtext="'+ categories.join(', ') +'">'+ venue.name +'</option>';
+		  		$(venueItem).appendTo(thisSelect);
 		  	});
-		  	$(e.currentTarget).after(nearbySelect).parent().find('.select-full-screen');
-		  	debugger;
+		  	$(e.currentTarget).parent().find('.selectPicker').selectpicker();
+		  	
   		}
 		  else{
 		  	return err;
