@@ -1,6 +1,9 @@
 body{
-	font-size: 16px;
-	background: $brand-primary;
+	font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.center-block{
+	float: none;
 }
 
 #login-dropdown-list{
