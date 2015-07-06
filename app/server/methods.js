@@ -3,6 +3,10 @@
 /*****************************************************************************/
 Meteor.methods({
 	foursquare: function(params){
+		if (! Meteor.userId()){
+			throw new Meteor.Error(704, 'not-authorized'); 
+		}
+			
 		var urlPrefix = 'https://api.foursquare.com/v2/venues/';
 		var timeStamp = (function(){ return (new Date()).toISOString().slice(0,10).replace(/-/g,"");})();
 		var auth = (function(){ return '&client_id='+ Meteor.settings.apiServices.foursquare.appId +'&client_secret='+ Meteor.settings.apiServices.foursquare.secret +'&v='})();
@@ -12,17 +16,29 @@ Meteor.methods({
     return response;	
 	},
 	geoCode: function(address){
+		if (! Meteor.userId()){
+			throw new Meteor.Error(704, 'not-authorized');
+		}
+			
 		console.log(address);
 		var geo = GeoCoder();
 		var result = geo(address);
 		return result;
 	},
 	reverseGeocode: function(latLng){
+		if (! Meteor.userId()){
+			throw new Meteor.Error(704, 'not-authorized');
+		}
+			
 		var geo = new GeoCoder();
 		var result = geo.reverse(latLng[0], latLng[1]);
 		return result;
 	},
 	insertNetwork: function(network){
+		if (! Meteor.userId()){
+			throw new Meteor.Error(704, 'not-authorized');
+		}
+			
 		if (Meteor.user())
 			network.userId = Meteor.userId();
 		network.createdAt = new Date;
@@ -30,6 +46,10 @@ Meteor.methods({
 		return newNetwork;
 	},
 	insertVenue: function(venue){
+		if (! Meteor.userId()){
+			throw new Meteor.Error(704, 'not-authorized');
+		}
+			
 		if (Meteor.user())
 			venue.userId = Meteor.userId();
 		venue.createdAt = new Date;
@@ -37,6 +57,10 @@ Meteor.methods({
 		return newVenue;
 	},
 	insertLocation: function(venueID, networkID){
+		if (! Meteor.userId()){
+			throw new Meteor.Error(704, 'not-authorized');
+		}
+			
 		var location = {
 			venueId: venueID,
 			networkId: networkID,
@@ -49,10 +73,17 @@ Meteor.methods({
 		return newLocation;
 	},
 	getVenues: function(latLng){
-		console.log("Fetching venues for [" + latLng +"]");
-		var coords = latLng;
-		var result = Meteor.call('foursquare', 'search?ll=' + coords);
-		return result;
+		try{
+			var coords = latLng;
+			var result = Meteor.call('foursquare', 'search?ll=' + coords);
+			return result;
+		} catch (error) {
+      throw new Meteor.Error(400, "Fetching venues for [" + latLng +"] failed.");
+    }
+	},
+	getPage: function(url){
+		try{  return HTTP.get(url); } 
+		catch (error){ throw new Meteor.Error(400, "HTTP request for " + url + " failed."); }
 	}
 
 });
