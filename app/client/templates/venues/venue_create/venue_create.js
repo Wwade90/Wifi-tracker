@@ -85,7 +85,6 @@ Template.VenueCreate.helpers({
 /*****************************************************************************/
 
 Template.VenueCreate.created = function () {
-	getUserGeolocation();
 };
 
 Template.VenueCreate.rendered = function () {
