@@ -21,6 +21,10 @@ body{
 	pointer-events: none;
 }
 
+.panel-body + .panel-body{
+	padding-top: 0;
+}
+
 .margin-20-0{
 	margin: 20px 0;
 }
