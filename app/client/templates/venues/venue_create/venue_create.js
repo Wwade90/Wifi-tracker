@@ -3,23 +3,30 @@
 /*****************************************************************************/
 Template.VenueCreate.events({
 	'click #location_name': function(event){
-		var coords = [Session.get('lat'), Session.get('lon')];
-  	var venues = Meteor.call('getVenues', coords, function (error, response) {
-  		if (!error){
-		  	var nearbySelect = '<select class="selectPicker"></select>';
-		  	$(event.currentTarget).after(nearbySelect);
-		  	_.each(response.data.response.venues, function(venue, i){
-		  		var thisSelect = $(event.currentTarget).parent().find('.selectPicker');
-  				var categories = _.pluck(venue.categories, 'shortName');
-		  		var venueItem = '<option value="'+ venue.name +'" data-subtext="'+ categories.join(', ') +'">'+ venue.name +'</option>';
-		  		$(venueItem).appendTo(thisSelect);
-		  	});
-		  	$(event.currentTarget).parent().find('.selectPicker').selectpicker();	
-  		}
-		  else{
-		  	throw Error(400, error.reason);
-		  }
-  	});
+		var getCoords = function(){
+			return Session.get('lat') !== undefined ? Session.get('currentUserCoords') : false;
+		}
+		if (!!getCoords()){
+	  	var venues = Meteor.call('getVenues', getCoords(), function (error, response) {
+	  		if (!error){
+			  	var nearbySelect = '<select class="selectPicker"></select>'
+			  			nearbySelectClass = 'selectPicker';
+			  	if (!$(event.currentTarget).siblings('.' + nearbySelectClass).length){
+				  	$(event.currentTarget).after(nearbySelect);
+				  	_.each(response.data.response.venues, function(venue, i){
+				  		var thisSelect = $(event.currentTarget).parent().find('.selectPicker');
+		  				var categories = _.pluck(venue.categories, 'shortName');
+				  		var venueItem = '<option value="'+ venue.name +'" data-subtext="'+ categories.join(', ') +'">'+ venue.name +'</option>';
+				  		$(venueItem).appendTo(thisSelect);
+				  	});
+				  	$(event.currentTarget).parent().find('.selectPicker').selectpicker();	
+			  	}
+	  		}
+			  else{
+			  	throw new Meteor.Error(400, error.reason);
+			  }
+	  	});
+		}
   },
 	'keypress #location_address': function(event){
 		// setTimeout(function(){
