@@ -9,9 +9,17 @@
           </h3>
         </div>
         <div class="panel-body">
+          <a href="#manual" class="list-group-item list-group-item-info" aria-controls="manual" role="tab" data-toggle="tab">Add New Location <span class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span></a>
+        </div>
+        <div class="panel-body">
           {{#each locations}}
-            <a href class="list-group-item" data-foursquare-id="{{id}}">{{name}} <span class="pull-right"><span class="badge">{{categories}}</span></span></a> 
+            <a href="#" class="list-group-item" data-foursquare-id="{{id}}">{{name}} <span class="pull-right"><span class="badge">{{categories}}</span></span>
+              <div class="clearfix"></div>
+            </a> 
           {{/each}}
+        </div>
+        <div class="panel-body">
+          <a href="#manual" class="list-group-item list-group-item-info" aria-controls="manual" role="tab" data-toggle="tab">Add New Location <span class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span></a>
         </div>
       </div>
     </div>

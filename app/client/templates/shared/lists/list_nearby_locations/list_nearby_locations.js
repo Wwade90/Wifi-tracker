@@ -2,6 +2,9 @@
 /* ListNearbyLocations: Event Handlers */
 /*****************************************************************************/
 Template.ListNearbyLocations.events({
+  'click [href="#manual"]': function(event){
+    $(event.currentTarget).closest('.modal').find('[role="tablist"] [href="'+ $(event.currentTarget).attr("href") +'"]').trigger('click');
+  }
 });
 
 Tracker.autorun(function() {  
@@ -11,14 +14,14 @@ Tracker.autorun(function() {
   }
 });
 
-Template.ListNearbyLocations.events({  
-  'submit form': function(event, template) {
-    event.preventDefault();
-    var query = template.$('input[type=text]').val();
-    if (query)
-      Session.set('query', query);
-  }
-});
+// Template.ListNearbyLocations.events({  
+//   'submit form': function(event, template) {
+//     event.preventDefault();
+//     var query = template.$('input[type=text]').val();
+//     if (query)
+//       Session.set('query', query);
+//   }
+// });
 
 /*****************************************************************************/
 /* ListNearbyLocations: Helpers */
