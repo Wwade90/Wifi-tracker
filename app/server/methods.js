@@ -3,9 +3,9 @@
 /*****************************************************************************/
 Meteor.methods({
 	foursquare: function(params){
-		if (! Meteor.userId()){
-			throw new Meteor.Error(704, 'not-authorized'); 
-		}
+		// if (! Meteor.userId()){
+		// 	throw new Meteor.Error(704, 'not-authorized'); 
+		// }
 			
 		var urlPrefix = 'https://api.foursquare.com/v2/venues/';
 		var timeStamp = (function(){ return (new Date()).toISOString().slice(0,10).replace(/-/g,"");})();
@@ -73,13 +73,12 @@ Meteor.methods({
 		return newLocation;
 	},
 	getVenues: function(latLng){
-		try{
-			var coords = latLng;
-			var result = Meteor.call('foursquare', 'search?ll=' + coords);
-			return result;
-		} catch (error) {
-      throw new Meteor.Error(400, "Fetching venues for [" + latLng +"] failed.");
-    }
+		// if (! Meteor.userId()){
+		// 	throw new Meteor.Error(704, 'not-authorized');
+		// }
+		console.log(latLng);
+		var response = Meteor.call('foursquare', 'search?ll=' + latLng);
+		return response;
 	},
 	getPage: function(url){
 		try{  return HTTP.get(url); } 
