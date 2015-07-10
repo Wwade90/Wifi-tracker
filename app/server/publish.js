@@ -55,7 +55,7 @@ Meteor.publish('nearbyLocations', function(query){
 			var categories = _.pluck(venue.categories, 'shortName');
 
   		var doc = {
-  			foursquare_id: venue.id,
+  			id: venue.id,
   			name: venue.name,
   			distance: venue.location.distance,
   			lat: venue.location.lat,
