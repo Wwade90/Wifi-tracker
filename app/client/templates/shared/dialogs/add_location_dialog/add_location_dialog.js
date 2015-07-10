@@ -2,9 +2,9 @@
 /* AddLocationDialog: Event Handlers */
 /*****************************************************************************/
 Template.AddLocationDialog.events({
-	'shown.bs.modal #AddLocationDialog': function(e){
-		console.log('triggered dialog');
-	}
+	// 'shown.bs.modal #AddLocationDialog': function(e){
+	// 	console.log('triggered dialog');
+	// }
 });
 
 /*****************************************************************************/
