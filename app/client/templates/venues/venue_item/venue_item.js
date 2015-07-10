@@ -22,7 +22,6 @@ Template.VenueItem.helpers({
 				latitude: this.coordinates[0],
 				longitude: this.coordinates[1]
 			};
-
 			var distance = geolib.getDistance(startPoint, endPoint);
 			var distanceValueFromUser = calculateDistance(distance)[0],
 					distanceUnitFromUser = calculateDistance(distance)[1];

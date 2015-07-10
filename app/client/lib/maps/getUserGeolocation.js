@@ -20,6 +20,7 @@ getUserGeolocation = function(){
     getCurrentPositionDeferred({
       enableHighAccuracy: true
     }).done(function(position) {
+      console.log([position.coords.latitude, position.coords.longitude]);
       Session.set('lat', position.coords.latitude);
       Session.set('lon', position.coords.longitude);
       Session.set('currentUserCoords', [position.coords.latitude, position.coords.longitude]);

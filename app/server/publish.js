@@ -47,3 +47,28 @@ Meteor.publish('VenueDetail', function(id){
   return Venues.find(id);
 });
 
+Meteor.publish('nearbyLocations', function(query){
+  var self = this;
+  try {
+		var response = Meteor.call('getVenues', query.coords);
+		_.each(response.data.response.venues, function(venue, i){
+			var categories = _.pluck(venue.categories, 'shortName');
+
+  		var doc = {
+  			foursquare_id: venue.id,
+  			name: venue.name,
+  			distance: venue.location.distance,
+  			lat: venue.location.lat,
+  			lng: venue.location.lng,
+  			categories: categories
+  		};
+  		self.added('nearbyLocations', Random.id(), doc);
+  	});
+
+    self.ready();
+
+  } catch(error) {
+    console.log(error);
+  }
+});
+

@@ -1,0 +1,24 @@
+<template name="ListNearbyLocations">
+  {{#if locations.count}}
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Please select the location the network belongs to
+          </h3>
+        </div>
+        <div class="panel-body">
+          {{#each locations}}
+            <a href class="list-group-item" data-foursquare-id="{{id}}">{{name}} <span class="pull-right"><span class="badge">{{categories}}</span></span></a> 
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {{else}}
+    <h2 class="text-center text-muted margin-20-0">Loading from Foursquare...</h2> 
+  {{/if}}
+    
+</template>

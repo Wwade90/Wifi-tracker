@@ -1,0 +1,35 @@
+<template name="AddLocationDialog">
+  <div class="modal fade" id="AddLocationDialog" tabindex="-1" role="dialog" aria-labelledby="AddLocationDialogLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="AddLocationDialogLabel">Add a Location</h4>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+            	<a href="#detect" aria-controls="detect" role="tab" data-toggle="tab">Detect My Location</a>
+            </li>
+            <li role="presentation" >
+            	<a href="#manual" aria-controls="manual" role="tab" data-toggle="tab">Insert Manually</a>
+            </li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="detect">
+            	{{> ListNearbyLocations}}
+            </div>
+            <div role="tabpanel" class="tab-pane" id="manual">
+            	{{> VenueCreate}}
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

@@ -17,12 +17,12 @@
       <div class="panel-body">
         
         <div class="list-group">
-        {{#if equals venueCount 0}}
-          <h2 class="text-center text-muted margin-20-0">No Results Found</h2>
-        {{else}}
+        {{#if venues.count}}
           {{#each venues}}
             {{> VenueItem}}
           {{/each}}
+        {{else}}
+          <h2 class="text-center text-muted margin-20-0">No Results Found</h2>
         {{/if}}
         </div>  
       </div>
@@ -31,6 +31,7 @@
   </div>
   
   {{> AddLocationButton}}
+  {{> AddLocationDialog}}
  
   <!-- {{/if}} -->
     
