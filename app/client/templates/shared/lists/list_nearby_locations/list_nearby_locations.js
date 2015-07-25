@@ -3,7 +3,24 @@
 /*****************************************************************************/
 var autofillForm = function(container, object){
   var form = container.find('form');
-
+     /*
+      • name
+      • categories
+      • tags
+      • address
+    */
+  var venueData = {
+    name: object.data.name,
+    formattedAddress : object.data.location.formattedAddress.join(', '),
+    latitude: object.data.location.lat,
+    longitude: object.data.location.lng
+  }
+  form
+    .find('#location_name').val(venueData.name).end()
+    .find('#location_address').val(venueData.formattedAddress).end()
+    .find('#location_latitude').val(venueData.latitude).end()
+    .find('#location_longitude').val(venueData.longitude);
+  debugger;
 };
 
 Template.ListNearbyLocations.events({
@@ -20,17 +37,8 @@ Template.ListNearbyLocations.events({
     var getVenue = Meteor.call('getVenue', venueId, function(error, response){
       if (!error){
         var foursquareVenue = response.data.response.venue;
-        /*
-          • name
-          • categories
-          • tags
-          • address
-        */
-
-
-        // $('[href="#tab--form-addVenue"]').tab('show');
-        // autofillForm($('#tab--form-addVenue'), {type: 'venue', data: foursquareVenue});
-
+        $('[href="#tab--form-addVenue"]').tab('show');
+        autofillForm($('#tab--form-addVenue'), {type: 'venue', data: foursquareVenue});
       }
       else {
         console.error(error);
