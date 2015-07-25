@@ -21,6 +21,9 @@ Template.VenueList.helpers({
 	
 	venueCount: function(){
 		return Venues.find().count();
+	},
+	i18nVenuesText: function(){
+		return TAPi18n.__('location.venues');
 	}
 });
 

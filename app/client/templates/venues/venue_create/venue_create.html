@@ -1,6 +1,5 @@
 <template name="VenueCreate">
-		
-	<div class="row">
+  <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -10,58 +9,53 @@
         </div>
         <div class="panel-body">
           <form id="network_create" role="form">
-	  	<div class="row">
-	  		<div class="col-sm-12">
-	  			<div class="row">
-	  				<div class="col-sm-12">
-	  					<div class="form-group ">
-	  						<label for="location_name">Location Name</label>
-	  						<input class="form-control" type="text" id="location_name" placeholder="What is the place called?">
-
-	  					</div>
-	  				</div>
-	  			</div> <!--/.row -->
-	  		
-	  			<div class="row">
-	  				<div class="col-sm-12">
-	  					<div class="form-group ">
-						    <label for="location_address">Street Address</label>
-						    <div class="input-group">
-						      <input type="text" class="form-control" id="location_address" placeholder="Do you know the street address?" value="{{streetAddress}}" data-location="{{locationData}}">
-						      <span class="input-group-btn">
-						        <button class="btn btn-default" type="button">Locate</button>
-						      </span>
-						    </div>
-						    
-						  </div> 
-						</div>
-	  			</div>
-	  		</div>
-	  	</div>
-	  	<div class="row">
-	  		<div class="col-sm-6">
-	  			<div class="form-group ">
-				    <label for="network_name">Network Name</label>
-				    <input type="text" class="form-control" id="network_name" placeholder="Enter Network Name">
-				  </div> <!-- /.form-group  -->
-	  		</div>
-	  		<div class="col-sm-6">
-	  			<div class="form-group ">
-				    <label for="network_password">Password</label>
-				    <input type="password" class="form-control" id="network_password" placeholder="Password">
-				  </div> <!-- /.form-group  -->
-	  		</div>
-	  	</div>
-		 
-		  <div class="checkbox">
-		    <label>
-		      <input type="checkbox" id="network_isPublic" checked> Public
-		    </label>
-		  </div>
-		  
-		  <button type="submit" class="btn btn-default btn-success btn-lg">Add Network</button>
-		  <button class="btn btn-default btn-outline btn-lg">Cancel</button>
-		</form>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group ">
+                      <label for="location_name">Location Name</label>
+                      <input class="form-control" type="text" id="location_name" placeholder="What is the place called?">
+                    </div>
+                  </div>
+                </div>
+                <!--/.row -->
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group ">
+                      <label for="location_address">Street Address</label>
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="location_address" placeholder="Do you know the street address?" value="{{streetAddress}}" data-location="{{locationData}}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group ">
+                  <label for="network_name">Network Name</label>
+                  <input type="text" class="form-control" id="network_name" placeholder="Enter Network Name">
+                </div>
+                <!-- /.form-group  -->
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group ">
+                  <label for="network_password">Password</label>
+                  <input type="password" class="form-control" id="network_password" placeholder="Password">
+                </div>
+                <!-- /.form-group  -->
+              </div>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id="network_isPublic" checked> Public
+              </label>
+            </div>
+            <button type="submit" class="btn btn-default btn-success btn-lg">Add Network</button>
+            <button class="btn btn-default btn-outline btn-lg">Cancel</button>
+          </form>
         </div>
       </div>
     </div>

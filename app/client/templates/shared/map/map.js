@@ -54,7 +54,7 @@ Template.Map.created = function () {
       position: new google.maps.LatLng(Session.get('lat'), Session.get('lon')),
       icon: constants.icons.svg["map-star"],
       map: map.instance,
-      title: TAPi18n.__('location:yourLocation')
+      title: TAPi18n.__('location.yourLocation')
     });   
 
 		var center;

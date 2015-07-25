@@ -1,17 +1,36 @@
 /*****************************************************************************/
 /* ListNearbyLocations: Event Handlers */
 /*****************************************************************************/
+var autofillForm = function(container, object){
+  var form = container.find('form');
+
+};
+
 Template.ListNearbyLocations.events({
-  'click [href="#manual"]': function(event){
-    $(event.currentTarget).closest('.modal').find('[role="tablist"] [href="'+ $(event.currentTarget).attr("href") +'"]').trigger('click');
+  'click [href="#tab--form-addVenue"]': function(event){
+    event.preventDefault();
+    $('[href="#tab--form-addVenue"]').tab('show');
+  },
+  'click a[role="tab"]': function(event){
+    event.preventDefault();
+    $(event.currentTarget).tab('show');
   },
   'click [data-foursquare-id]': function(event, template){
     var venueId = event.currentTarget.dataset.foursquareId;
     var getVenue = Meteor.call('getVenue', venueId, function(error, response){
       if (!error){
         var foursquareVenue = response.data.response.venue;
-        console.log(foursquareVenue);
-        alert("Check out the console for venue information.");
+        /*
+          • name
+          • categories
+          • tags
+          • address
+        */
+
+
+        // $('[href="#tab--form-addVenue"]').tab('show');
+        // autofillForm($('#tab--form-addVenue'), {type: 'venue', data: foursquareVenue});
+
       }
       else {
         console.error(error);
@@ -40,6 +59,9 @@ Tracker.autorun(function() {
 /* ListNearbyLocations: Helpers */
 /*****************************************************************************/
 Template.ListNearbyLocations.helpers({
+  i18nAddLocationText: function(){
+    return TAPi18n.__('uitext.add.i_want_to_add_my_own');
+  },
 	locations: function(){
 		return nearbyLocations.find();
 	},

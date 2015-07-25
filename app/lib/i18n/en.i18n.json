@@ -1,10 +1,18 @@
 {
     "location": {
+    	"singular": "Location",
+    	"plural": "Locations",
     	"yourLocation": "Your Location",
-    	"distance": "Distance"
+    	"distance": "Distance",
+    	"venue": "Venue",
+    	"venues": "Venues"
     },
     "uitext": {
     	"getInfo": "Get Info",
-    	"clickHere": "Click Here"
+    	"clickHere": "Click Here",
+    	"add":{
+    			"prepend": "Add a ",
+    			"i_want_to_add_my_own": "I want to add my own"
+    		}
     }
 }
