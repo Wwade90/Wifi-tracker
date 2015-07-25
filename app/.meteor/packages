@@ -21,10 +21,10 @@ natestrauser:font-awesome
 aldeed:geocoder
 oleh:foursquare
 http
-peerlibrary:blaze-components
 reactive-var
 mquandalle:bower
 reywood:bootstrap3-sass
 outatime:geolib
 tap:i18n
 kookoskar:bootstrap-select
+mdg:geolocation
