@@ -4,6 +4,19 @@
 Template.ListNearbyLocations.events({
   'click [href="#manual"]': function(event){
     $(event.currentTarget).closest('.modal').find('[role="tablist"] [href="'+ $(event.currentTarget).attr("href") +'"]').trigger('click');
+  },
+  'click [data-foursquare-id]': function(event, template){
+    var venueId = event.currentTarget.dataset.foursquareId;
+    var getVenue = Meteor.call('getVenue', venueId, function(error, response){
+      if (!error){
+        var foursquareVenue = response.data.response.venue;
+        console.log(foursquareVenue);
+        alert("Check out the console for venue information.");
+      }
+      else {
+        console.error(error);
+      }
+    });
   }
 });
 

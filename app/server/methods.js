@@ -73,12 +73,14 @@ Meteor.methods({
 		return newLocation;
 	},
 	getVenues: function(latLng){
-		// if (! Meteor.userId()){
-		// 	throw new Meteor.Error(704, 'not-authorized');
-		// }
-		console.log(latLng);
-		var response = Meteor.call('foursquare', 'search?ll=' + latLng);
-		return response;
+		var venues = Meteor.call('foursquare', 'search?ll=' + latLng);
+		return venues;
+	},
+	getVenue: function(id){
+		console.log(id);
+		var venue = Meteor.call('foursquare', id + '?');
+		console.log(venue);
+		return venue;
 	},
 	getPage: function(url){
 		try{  return HTTP.get(url); } 
