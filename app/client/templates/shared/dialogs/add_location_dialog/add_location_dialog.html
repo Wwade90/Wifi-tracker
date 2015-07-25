@@ -9,18 +9,18 @@
         <div class="modal-body">
           <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
-            	<a href="#detect" aria-controls="detect" role="tab" data-toggle="tab">Find Me</a>
+            	<a href="#tab--detect-venue" aria-controls="Detect Venue" role="tab" data-toggle="tab">Find Me</a>
             </li>
             <li role="presentation" >
-            	<a href="#manual" aria-controls="manual" role="tab" data-toggle="tab">Add New</a>
+            	<a href="#tab--form-addVenue" aria-controls="Add Venue" role="tab" data-toggle="tab">Add New</a>
             </li>
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="detect">
+            <div role="tabpanel" class="tab-pane active" id="tab--detect-venue">
             	{{> ListNearbyLocations}}
             </div>
-            <div role="tabpanel" class="tab-pane" id="manual">
+            <div role="tabpanel" class="tab-pane" id="tab--form-addVenue">
             	{{> VenueCreate}}
             </div>
           </div>
