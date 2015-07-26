@@ -9,6 +9,9 @@ Template.VenueList.events({
 /* VenueList: Helpers */
 /*****************************************************************************/
 Template.VenueList.helpers({
+	hasUserLocation: function(){
+		return !!Session.get('currentUserCoords');
+	},
 	venues: function(){
 		return Venues.find(
 			{ 'coordinates': 
@@ -18,7 +21,6 @@ Template.VenueList.helpers({
 				}
 			})
 	},
-	
 	venueCount: function(){
 		return Venues.find().count();
 	},
