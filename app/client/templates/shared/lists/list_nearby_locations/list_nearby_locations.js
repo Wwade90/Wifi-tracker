@@ -1,6 +1,9 @@
 /*****************************************************************************/
 /* ListNearbyLocations: Event Handlers */
 /*****************************************************************************/
+var resetForm = function(form){
+  
+};
 var autofillForm = function(container, object){
   var form = container.find('form');
      /*
@@ -16,17 +19,37 @@ var autofillForm = function(container, object){
     longitude: object.data.location.lng
   }
   form
-    .find('#location_name').val(venueData.name).end()
-    .find('#location_address').val(venueData.formattedAddress).end()
-    .find('#location_latitude').val(venueData.latitude).end()
-    .find('#location_longitude').val(venueData.longitude);
-  debugger;
+    .find('#location_name').val(venueData.name)
+      .prop('disabled', true).end()
+    .find('#location_address').val(venueData.formattedAddress)
+      .prop('disabled', true).end()
+    .find('#location_latitude').val(venueData.latitude)
+      .prop('disabled', true).end()
+    .find('#location_longitude').val(venueData.longitude)
+      .prop('disabled', true);
+
+  if (!form.find('.alert').length){
+    var alertTemplate = [
+      '<div class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="alert-body"></div></div>'
+    ].join('\n');
+    form.append(alertTemplate)
+    var alertEl = form.find('.alert'),
+        alertBody = alertEl.find('.alert-body');
+    alertBody.text("This is just a test");
+  }
+
 };
 
 Template.ListNearbyLocations.events({
   'click [href="#tab--form-addVenue"]': function(event){
     event.preventDefault();
+    // Show the add venue form tab
     $('[href="#tab--form-addVenue"]').tab('show');
+
+    if (event.currentTarget.dataset.function.indexOf('resetForm') > -1){
+    // If link has data-attribute to reset form, make it so
+      resetForm(form);
+    }
   },
   'click a[role="tab"]': function(event){
     event.preventDefault();
@@ -39,9 +62,11 @@ Template.ListNearbyLocations.events({
         var foursquareVenue = response.data.response.venue;
         $('[href="#tab--form-addVenue"]').tab('show');
         autofillForm($('#tab--form-addVenue'), {type: 'venue', data: foursquareVenue});
+        $(event.currentTarget).addClass('active').siblings().removeClass('active');
       }
       else {
-        console.error(error);
+        console.error(error.message);
+        alert("Could not retrieve response from server. Reason: " + error.message);
       }
     });
   }
@@ -73,6 +98,17 @@ Template.ListNearbyLocations.helpers({
 	locations: function(){
 		return nearbyLocations.find();
 	},
+  getCategories: function(){
+    var categories = Meteor.call('getCategories', function(error, response){  
+      if (!error){
+        console.log(response.data.response.categories);
+        return response.data.response.categories;
+      } else {
+        console.error(error);
+        return "Could not retrieve categories."
+      }
+    });
+  },
   distanceFromUser: function(){
     var endPoint = {
       latitude: this.lat,
@@ -96,7 +132,6 @@ Template.ListNearbyLocations.created = function () {
 };
 
 Template.ListNearbyLocations.rendered = function () {
-
 };
 
 Template.ListNearbyLocations.destroyed = function () {
