@@ -2,10 +2,12 @@
 /* Button Styles */
 /*****************************************************************************/
 
+.btn{
+  transition: all .2s;
+}
 .btn-outline {
   background-color: transparent;
   color: inherit;
-  transition: all .5s;
 }
 
 .btn-default.btn-outline{
