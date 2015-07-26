@@ -1,39 +1,42 @@
 <template name="VenueList">
   {{> navbar}}
-  {{> NearbyMap}}
-  
-  <!-- {{#if currentUser}} -->
-  <div class="container venue-list">
+  {{# if hasUserLocation}}
+    {{> NearbyMap}}
+    
+    <!-- {{#if currentUser}} -->
+    <div class="container venue-list">
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <span class="pull-right">{{> VenueFilter}}</span>
-          <span class="venues-count">{{venueCount}}</span> <span class="venues-count--title">{{i18nVenuesText}}</span> 
-        </h3>
-        
-        <div class="clearfix"></div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="pull-right">{{> VenueFilter}}</span>
+            <span class="venues-count">{{venueCount}}</span> <span class="venues-count--title">{{i18nVenuesText}}</span> 
+          </h3>
+          
+          <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+          
+          <div class="list-group">
+          {{#if venues.count}}
+            {{#each venues}}
+              {{> VenueItem}}
+            {{/each}}
+          {{else}}
+            <h2 class="text-center text-muted margin-20-0">No Results Found</h2>
+          {{/if}}
+          </div>  
+        </div>
       </div>
-      <div class="panel-body">
-        
-        <div class="list-group">
-        {{#if venues.count}}
-          {{#each venues}}
-            {{> VenueItem}}
-          {{/each}}
-        {{else}}
-          <h2 class="text-center text-muted margin-20-0">No Results Found</h2>
-        {{/if}}
-        </div>  
-      </div>
+     
     </div>
-   
-  </div>
-  
-  {{> AddLocationButton}}
-  {{> AddLocationDialog}}
- 
-  <!-- {{/if}} -->
+    
+    {{> AddLocationButton}}
+    {{> AddLocationDialog}}
+  {{else}}
+    {{> Loading}}
+  {{/if}}
+
     
   
 </template>
