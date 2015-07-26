@@ -5,11 +5,11 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">
-            Please select the location the network belongs to
+            Please select your location
           </h3>
         </div>
         <div class="panel-body">
-          <a href="#tab--form-addVenue" class="list-group-item list-group-item-info" aria-controls="Add Venue" role="tab" data-toggle="tab">{{i18nAddLocationText}} <span class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span></a>
+          <a href="#tab--form-addVenue" class="list-group-item list-group-item-info" aria-controls="Add Venue" role="tab" data-toggle="tab" data-trigger="resetForm">{{i18nAddLocationText}} <span class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span></a>
         </div>
         <div class="panel-body">
           {{#each locations}}
@@ -19,14 +19,14 @@
           {{/each}}
         </div>
         <div class="panel-body">
-          <a href="#tab--form-addVenue" class="list-group-item list-group-item-info" aria-controls="Add Venue" role="tab" data-toggle="tab">{{i18nAddLocationText}} <span class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span></a>
+          <a href="#tab--form-addVenue" class="list-group-item list-group-item-info" aria-controls="Add Venue" role="tab" data-toggle="tab" data-trigger="resetForm">{{i18nAddLocationText}} <span class="pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span></a>
         </div>
       </div>
     </div>
   </div>
   
   {{else}}
-    <h2 class="text-center text-muted margin-20-0">Loading from Foursquare...</h2> 
+    {{> Loading class="inline-block"}}
   {{/if}}
     
 </template>
