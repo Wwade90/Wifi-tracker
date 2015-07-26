@@ -7,20 +7,22 @@
           <h4 class="modal-title" id="AddLocationDialogLabel">Add a Location</h4>
         </div>
         <div class="modal-body">
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-            	<a href="#tab--detect-venue" aria-controls="Detect Venue" role="tab" data-toggle="tab">Find Me</a>
-            </li>
-            <li role="presentation" >
-            	<a href="#tab--form-addVenue" aria-controls="Add Venue" role="tab" data-toggle="tab">Add New</a>
-            </li>
-          </ul>
+          <div class="row text-center">
+            <ul class="nav nav-tabs nav-tabs--centered" role="tablist">
+              <li role="presentation" class="active">
+              	<a href="#tab--detect-venue" aria-controls="Detect Venue" role="tab" data-toggle="tab">Find Me</a>
+              </li>
+              <li role="presentation" >
+              	<a href="#tab--form-addVenue" aria-controls="Add Venue" role="tab" data-toggle="tab">Add New</a>
+              </li>
+            </ul>
+          </div>
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="tab--detect-venue">
+            <div role="tabpanel" class="tab-pane fade active in" id="tab--detect-venue">
             	{{> ListNearbyLocations}}
             </div>
-            <div role="tabpanel" class="tab-pane" id="tab--form-addVenue">
+            <div role="tabpanel" class="tab-pane fade" id="tab--form-addVenue">
             	{{> VenueCreate}}
             </div>
           </div>
