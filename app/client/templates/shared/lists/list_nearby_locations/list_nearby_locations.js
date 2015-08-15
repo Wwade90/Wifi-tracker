@@ -2,7 +2,7 @@
 /* ListNearbyLocations: Event Handlers */
 /*****************************************************************************/
 var resetForm = function(form){
-  
+
 };
 var autofillForm = function(container, object){
   var form = container.find('form');
@@ -45,7 +45,7 @@ Template.ListNearbyLocations.events({
     event.preventDefault();
     // Show the add venue form tab
     $('[href="#tab--form-addVenue"]').tab('show');
-
+    $('#network_create').trigger('reset');
     if (event.currentTarget.dataset.function.indexOf('resetForm') > -1){
     // If link has data-attribute to reset form, make it so
       resetForm(form);
@@ -72,14 +72,14 @@ Template.ListNearbyLocations.events({
   }
 });
 
-Tracker.autorun(function() {  
+Tracker.autorun(function() {
   if (Session.get('query')) {
     var searchHandle = Meteor.subscribe('nearbyLocations', Session.get('query'));
     Session.set('searching', ! searchHandle.ready());
   }
 });
 
-// Template.ListNearbyLocations.events({  
+// Template.ListNearbyLocations.events({
 //   'submit form': function(event, template) {
 //     event.preventDefault();
 //     var query = template.$('input[type=text]').val();
@@ -99,7 +99,7 @@ Template.ListNearbyLocations.helpers({
 		return nearbyLocations.find();
 	},
   getCategories: function(){
-    var categories = Meteor.call('getCategories', function(error, response){  
+    var categories = Meteor.call('getCategories', function(error, response){
       if (!error){
         console.log(response.data.response.categories);
         return response.data.response.categories;
