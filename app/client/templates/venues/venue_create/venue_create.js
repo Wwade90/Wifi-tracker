@@ -19,7 +19,7 @@ Template.VenueCreate.events({
 		// 		  		var venueItem = '<option value="'+ venue.name +'" data-subtext="'+ categories.join(', ') +'">'+ venue.name +'</option>';
 		// 		  		$(venueItem).appendTo(thisSelect);
 		// 		  	});
-		// 		  	$(event.currentTarget).parent().find('.selectPicker').selectpicker();	
+		// 		  	$(event.currentTarget).parent().find('.selectPicker').selectpicker();
 		// 	  	}
 	 //  		}
 		// 	  else{
@@ -33,6 +33,10 @@ Template.VenueCreate.events({
 		// 	Session.set('streetAddress', event.currentTarget.value);
 		// 	console.log("Approximate street address is: " + Session.get('streetAddress'));
 		// }, 5000);
+	},
+	'reset #network_create': function(event, tmpl){
+		$('#network_create').find('[disabled]').not('[data-always-disabled]').removeAttr('disabled');
+		$('#tab--detect-venue').find('[data-foursquare-id].active').removeClass('active');
 	},
 	'submit #network_create': function(event, tmpl){
 		event.preventDefault();

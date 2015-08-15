@@ -40,13 +40,13 @@
             	<div class="col-xs-6">
                 <div class="form-group">
                   <label for="location_latitude">Latitude</label>
-                  <input type="text" class="form-control input-lg" id="location_latitude" placeholder="Lat" value="{{lat}}" disabled>
+                  <input type="text" class="form-control input-lg" data-always-disabled id="location_latitude" placeholder="Lat" value="{{lat}}" disabled>
                 </div>
             	</div>
             	<div class="col-xs-6">
                 <div class="form-group">
                   <label for="location_longitude">Longitude</label>
-                  <input type="text" class="form-control input-lg" id="location_longitude" placeholder="Lon" value="{{lon}}" disabled>
+                  <input type="text" class="form-control input-lg" data-always-disabled id="location_longitude" placeholder="Lon" value="{{lon}}" disabled>
                 </div>
             	</div>
             </div>
@@ -73,7 +73,7 @@
 	              </label>
 	            </div>
 	            <button type="submit" class="btn btn-default btn-lg">Add Network</button>
-	            <button class="btn btn-default btn-outline btn-lg">Cancel</button>
+	            <button type="reset" class="btn btn-default btn-outline btn-lg">Cancel</button>
             </div>
           </form>
         </div>

@@ -12,7 +12,7 @@ Template.AddLocationDialog.events({
 		if (nearbyLocationsSub)
 			nearbyLocationsSub.stop();
 		template.find('form').reset();
-		tempalte.find('a[data-foursquare-id]').removeClass('active');
+		template.find('a[data-foursquare-id]').removeClass('active');
 	}
 });
 
