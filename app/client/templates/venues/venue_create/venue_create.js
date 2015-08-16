@@ -29,6 +29,7 @@ Template.VenueCreate.events({
 		// }
   },
 	'keypress #location_address': function(event){
+
 		// setTimeout(function(){
 		// 	Session.set('streetAddress', event.currentTarget.value);
 		// 	console.log("Approximate street address is: " + Session.get('streetAddress'));
@@ -95,6 +96,9 @@ Template.VenueCreate.helpers({
 /*****************************************************************************/
 
 Template.VenueCreate.created = function () {
+	var autocomplete = new google.maps.places.Autocomplete(
+    (document.getElementById('location_address')),{types: ['geocode'] }
+  );
 };
 
 Template.VenueCreate.rendered = function () {
