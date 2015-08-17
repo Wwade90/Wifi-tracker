@@ -1,7 +1,5 @@
 Router.onBeforeAction(function() {
-    GoogleMaps.load({
-      libraries: 'geometry,places'
-    });
+    GoogleMaps.load();
     this.next();
   }, { only: ['home','venue.detail'] });
 

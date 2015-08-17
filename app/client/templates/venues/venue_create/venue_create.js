@@ -1,3 +1,20 @@
+var renderCategorySelect = function(el){
+	var self = el,
+			categories = Meteor.call('getCategories', function (error, response) {
+		if (!error){
+	  	_.each(response.data.response.categories, function(categories, i){
+				debugger;
+				// var categories = _.pluck(venue.categories, 'shortName');
+	  		var venueItem = '<option value="'+ venue.name +'" data-subtext="'+ categories.join(', ') +'">'+ venue.name +'</option>';
+	  		$(venueItem).appendTo(self);
+	  	});
+	  	$(event.currentTarget).parent().find('.selectPicker').selectpicker();
+		}
+	  else{
+	  	throw new Meteor.Error(400, error.reason);
+	  }
+	});
+}
 /*****************************************************************************/
 /* VenueCreate: Event Handlers */
 /*****************************************************************************/
@@ -29,7 +46,6 @@ Template.VenueCreate.events({
 		// }
   },
 	'keypress #location_address': function(event){
-
 		// setTimeout(function(){
 		// 	Session.set('streetAddress', event.currentTarget.value);
 		// 	console.log("Approximate street address is: " + Session.get('streetAddress'));
@@ -96,12 +112,14 @@ Template.VenueCreate.helpers({
 /*****************************************************************************/
 
 Template.VenueCreate.created = function () {
-	var autocomplete = new google.maps.places.Autocomplete(
-    (document.getElementById('location_address')),{types: ['geocode'] }
-  );
+	// var autocomplete = new google.maps.places.Autocomplete(
+  //   (document.getElementById('location_address')),{types: ['geocode'] }
+  // );
 };
 
 Template.VenueCreate.rendered = function () {
+	renderCategorySelect($('#location_categories'));
+	$('#location_categories').chosen({ width: '100%' });
 };
 
 Template.VenueCreate.destroyed = function () {
