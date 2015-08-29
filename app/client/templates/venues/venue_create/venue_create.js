@@ -1,14 +1,15 @@
-var renderCategorySelect = function(el){
+var renderCategorySelect = function(el, callback){
 	var self = el,
 			categories = Meteor.call('getCategories', function (error, response) {
 		if (!error){
-	  	_.each(response.data.response.categories, function(categories, i){
-				debugger;
+			var venueItem;
+	  	_.each(response.data.response.categories, function(category, i){
 				// var categories = _.pluck(venue.categories, 'shortName');
-	  		var venueItem = '<option value="'+ venue.name +'" data-subtext="'+ categories.join(', ') +'">'+ venue.name +'</option>';
+	  		venueItem = '<option value="'+ category.name +'">'+ category.name +'</option>';
 	  		$(venueItem).appendTo(self);
 	  	});
-	  	$(event.currentTarget).parent().find('.selectPicker').selectpicker();
+			!!callback ? callback() : ''
+	  	// $(event.currentTarget).parent().find('.selectPicker').selectpicker();
 		}
 	  else{
 	  	throw new Meteor.Error(400, error.reason);
@@ -118,8 +119,10 @@ Template.VenueCreate.created = function () {
 };
 
 Template.VenueCreate.rendered = function () {
-	renderCategorySelect($('#location_categories'));
-	$('#location_categories').chosen({ width: '100%' });
+	renderCategorySelect($('#location_categories'), function(){
+		$('#location_categories').chosen({ width: '100%' });
+	});
+
 };
 
 Template.VenueCreate.destroyed = function () {
