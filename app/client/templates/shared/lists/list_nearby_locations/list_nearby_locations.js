@@ -5,19 +5,20 @@ var resetForm = function(form){
 
 };
 var autofillForm = function(container, object){
-  var form = container.find('form');
      /*
       • name
       • categories
       • tags
       • address
     */
-  var venueData = {
-    name: object.data.name,
-    formattedAddress : object.data.location.formattedAddress.join(', '),
-    latitude: object.data.location.lat,
-    longitude: object.data.location.lng
-  }
+  var form = container.find('form'),
+      venueData = {
+        name: object.data.name,
+        formattedAddress : object.data.location.formattedAddress.join(', '),
+        latitude: object.data.location.lat,
+        longitude: object.data.location.lng,
+        categories: _.pluck(object.data.categories, 'name')
+      };
   form
     .find('#location_name').val(venueData.name)
       .prop('disabled', true).end()
@@ -26,13 +27,22 @@ var autofillForm = function(container, object){
     .find('#location_latitude').val(venueData.latitude)
       .prop('disabled', true).end()
     .find('#location_longitude').val(venueData.longitude)
-      .prop('disabled', true);
+      .prop('disabled', true).end();
+
+  // var newCategories = [];
+  var newCategoryTemplate;
+  venueData.categories.forEach(function(category){
+     newCategoryTemplate = "<option value="+ category +" selected>"+ category +"</option>";
+    // newCategories.push();
+    $('#location_categories').append(newCategoryTemplate).val(category).trigger('chosen:updated');
+  });
+
 
   if (!form.find('.alert').length){
     var alertTemplate = [
       '<div class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="alert-body"></div></div>'
     ].join('\n');
-    form.append(alertTemplate)
+    form.append(alertTemplate);
     var alertEl = form.find('.alert'),
         alertBody = alertEl.find('.alert-body');
     alertBody.text("This is just a test");
