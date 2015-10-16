@@ -1,19 +1,22 @@
 var renderCategorySelect = function(el, callback){
 	var self = el,
 			categories = Meteor.call('getCategories', function (error, response) {
+
 				if (!error){
 					var venueItem;
-			  	_.each(response.data.response.categories, function(category, i){
+			  	_.each(response.data.response.categories, function(category){
 			  		venueItem = '<option value="'+ category.name +'">'+ category.name +'</option>';
 			  		$(venueItem).appendTo(self);
 			  	});
-					!!callback ? callback() : ''
+					if (callback){ callback(); }
 				}
 			  else{
 			  	throw new Meteor.Error(400, error.reason);
 			  }
 			});
-}
+			return categories;
+};
+
 /*****************************************************************************/
 /* VenueCreate: Event Handlers */
 /*****************************************************************************/
@@ -75,7 +78,7 @@ Template.VenueCreate.events({
 		};
 		var venueID = Meteor.call('addVenue', venue, function (error, response){
 			if (!error){
-				console.log(response)
+				console.log(response);
 			} else {
 				throw new Error(error);
 			}
@@ -117,9 +120,16 @@ Template.VenueCreate.created = function () {
 };
 
 Template.VenueCreate.rendered = function () {
-	renderCategorySelect($('#location_categories'), function(){
-		$('#location_categories').chosen({ width: '100%' });
-	});
+	var $categoriesField = $('#location_categories');
+	// if ($categoriesField.has('option').length > 0){
+	// 	renderCategorySelect($categoriesField, function(){
+	// 		$categoriesField.chosen({ width: '100%' });
+	// 	});
+	// } else {\
+		$categoriesField.chosen({ width: '100%' });
+		$categoriesField.trigger('chosen:updated');
+		console.log('triggering refresh of chosen');
+	// }
 
 };
 
