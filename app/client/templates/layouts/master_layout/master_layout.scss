@@ -1,5 +1,8 @@
 body{
 	font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	& > *{
+		transition: all .2s ease-in;
+	}
 }
 .container { position: relative; }
 .center-block{ float: none; }
@@ -45,5 +48,5 @@ body{
 	font-size: 35px;
 }
 
-// Buttons 
+// Buttons
 .btn:focus { outline: none; }
