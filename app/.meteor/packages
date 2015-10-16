@@ -6,7 +6,6 @@
 
 meteor-platform
 iron:router
-fourseven:scss
 accounts-ui
 service-configuration
 momentjs:moment
@@ -25,3 +24,4 @@ outatime:geolib
 tap:i18n
 kookoskar:bootstrap-select
 eskan:chosen
+fourseven:scss
