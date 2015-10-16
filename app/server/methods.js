@@ -42,9 +42,9 @@ Meteor.methods({
 	},
 	/*———————————————————————————*/
 	geoCode: function(address){
-		if (! Meteor.userId()){
-			throw new Meteor.Error(704, 'not-authorized');
-		}
+		// if (! Meteor.userId()){
+		// 	throw new Meteor.Error(704, 'not-authorized');
+		// }
 
 		// console.log(address);
 		var geo = GeoCoder();
@@ -52,18 +52,18 @@ Meteor.methods({
 		return result;
 	},
 	reverseGeocode: function(latLng){
-		if (! Meteor.userId()){
-			throw new Meteor.Error(704, 'not-authorized');
-		}
+		// if (! Meteor.userId()){
+		// 	throw new Meteor.Error(704, 'not-authorized');
+		// }
 
 		var geo = new GeoCoder();
 		var result = geo.reverse(latLng[0], latLng[1]);
 		return result;
 	},
 	insertNetwork: function(network){
-		if (! Meteor.userId()){
-			throw new Meteor.Error(704, 'not-authorized');
-		}
+		// if (! Meteor.userId()){
+		// 	throw new Meteor.Error(704, 'not-authorized');
+		// }
 
 		if (Meteor.user())
 			network.userId = Meteor.userId();
@@ -72,9 +72,9 @@ Meteor.methods({
 		return newNetwork;
 	},
 	insertVenue: function(venue){
-		if (! Meteor.userId()){
-			throw new Meteor.Error(704, 'not-authorized');
-		}
+		// if (! Meteor.userId()){
+		// 	throw new Meteor.Error(704, 'not-authorized');
+		// }
 
 		if (Meteor.user())
 			venue.userId = Meteor.userId();
@@ -83,9 +83,9 @@ Meteor.methods({
 		return newVenue;
 	},
 	insertLocation: function(venueID, networkID){
-		if (! Meteor.userId()){
-			throw new Meteor.Error(704, 'not-authorized');
-		}
+		// if (! Meteor.userId()){
+		// 	throw new Meteor.Error(704, 'not-authorized');
+		// }
 
 		var location = {
 			venueId: venueID,
