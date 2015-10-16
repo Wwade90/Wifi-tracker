@@ -1,20 +1,18 @@
 var renderCategorySelect = function(el, callback){
 	var self = el,
 			categories = Meteor.call('getCategories', function (error, response) {
-		if (!error){
-			var venueItem;
-	  	_.each(response.data.response.categories, function(category, i){
-				// var categories = _.pluck(venue.categories, 'shortName');
-	  		venueItem = '<option value="'+ category.name +'">'+ category.name +'</option>';
-	  		$(venueItem).appendTo(self);
-	  	});
-			!!callback ? callback() : ''
-	  	// $(event.currentTarget).parent().find('.selectPicker').selectpicker();
-		}
-	  else{
-	  	throw new Meteor.Error(400, error.reason);
-	  }
-	});
+				if (!error){
+					var venueItem;
+			  	_.each(response.data.response.categories, function(category, i){
+			  		venueItem = '<option value="'+ category.name +'">'+ category.name +'</option>';
+			  		$(venueItem).appendTo(self);
+			  	});
+					!!callback ? callback() : ''
+				}
+			  else{
+			  	throw new Meteor.Error(400, error.reason);
+			  }
+			});
 }
 /*****************************************************************************/
 /* VenueCreate: Event Handlers */
