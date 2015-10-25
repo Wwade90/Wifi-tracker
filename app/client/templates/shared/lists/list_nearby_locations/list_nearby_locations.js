@@ -8,7 +8,6 @@ var resetForm = function(form){
   console.log('Resetting this form!');
   console.log(form);
 };
-<<<<<<< HEAD
 var autofillForm = function(container, response){
    /*
     • name
@@ -28,8 +27,7 @@ var autofillForm = function(container, response){
     //
     // ];
 
-  $form
-=======
+  // $form
 var autofillForm = function(container, object){
      /*
       • name
@@ -45,7 +43,7 @@ var autofillForm = function(container, object){
         longitude: object.data.location.lng,
         categories: _.pluck(object.data.categories, 'name')
       };
-      
+
   form
     .find('#location_name').val(venueData.name)
       .prop('disabled', true).end()
@@ -55,9 +53,9 @@ var autofillForm = function(container, object){
       .prop('disabled', true).end()
     .find('#location_longitude').val(venueData.longitude)
       .prop('disabled', true).end()
-    .find('#location_categories').val(venueData.categories);
+    .find('#location_categories').val(venueData.categories)
       .prop('disabled', true).end();
-
+};
   // var newCategories = [];
   var newCategoryTemplate;
   venueData.categories.forEach(function(category){
